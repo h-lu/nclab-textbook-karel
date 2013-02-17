@@ -3009,7 +3009,7 @@ And finally, truth table for logical {\tt not} is:\\
 \vspace{4mm}
 \noindent
 
-\subsection{Making random decisions}
+\subsection{\ \ Using random moves to search entire maze}
 
 In Level 3 Karel can make random decisions via the command {\tt rand}
 that returns with equal probability either {\tt True} or {\tt False}. 
@@ -3054,6 +3054,96 @@ After some time (it may take a while)
 the robot reaches all reachable gems and collects them! The program is in fact 
 an infinite loop, so you will have to eventually stop it via the red button.
 \noindent
+
+\subsection{\ \ Karel and Statistics}
+
+In this experiment Karel will reproduce the so-called {\em binomial distribution}. 
+If you do not know what this is, do not worry and keep reading -- the experiment 
+is quite interesting. Karel starts in the upper-right corner of the maze, facing
+South, as shown in Fig. \ref{fig:binomial},
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/binomial.png}
+\vspace{-0mm}
+\caption{Karel is ready for the statistical experiment.}
+%\vspace{-1cm}
+\label{fig:binomial}
+\end{center}
+\end{figure}
+
+\noindent
+He has many gems in his bag -- at least 100 but 500 is better. His task is to 
+descend towards the South wall of the maze, put a gem on the ground, and 
+return to his starting position. Before descending to the next row, however, he 
+always throws a coin and either goes straight south or diagonally south-west. 
+Since he descends 11 rows, the probablity that he makes it to the south-east
+corner of the maze is the same as throwing the coin 11 times and getting 
+always heads. Mathematically, this is $1/2$ to the power of $11$, which translates 
+into $0.0488$ \%. This is also the probability that he goes 11 times south-west.
+He repeats this experiment until his bag is empty.
+Here is the corresponding code:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Return to upper right corner and}
+\PY{c}{\PYZsh{} face South:}
+\PY{k}{def} GoCorner
+  \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{north}
+    \PY{n+nf}{left}
+  \PY{n+nf}{right}
+  \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+  \PY{n+nf}{left}
+  \PY{k}{repeat} 11
+    \PY{n+nf}{go}
+  \PY{n+nf}{right}
+  \PY{n+nf}{right}
+
+\PY{c}{\PYZsh{} Descend one row towards the South.}
+\PY{c}{\PYZsh{} Either go straight or to the right:}
+\PY{k}{def} Move
+  \PY{k}{if} \PY{n+nb+bp}{rand}
+    \PY{n+nf}{go}
+  \PY{k}{else}
+    \PY{n+nf}{right}
+    \PY{n+nf}{go}
+    \PY{n+nf}{left}
+    \PY{n+nf}{go}
+
+\PY{c}{\PYZsh{} Descend towards the South wall}
+\PY{c}{\PYZsh{} and drop a gem:}
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{empty}
+  \PY{k}{repeat} 11
+    \PY{n}{Move}
+\PY{n+nf}{put}
+\PY{n}{GoCorner}
+
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+\hfill
+
+\newpage
+\noindent
+You can clone this project by typing "karel statistics" in the Search
+window. The project is called "Karel and Statistics". Fig. \ref{fig:binomial2}
+shows the result. The distribution of the gems along the South wall 
+approximate the binomial distribution. 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/binomial2.png}
+\vspace{-0mm}
+\caption{Distribution of gems along the South wall when Karel is done.}
+%\vspace{-1cm}
+\label{fig:binomial2}
+\end{center}
+\end{figure}
+
+\noindent
+Credit for this example goes to Ed Keppelmann from UNR. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -3143,8 +3233,7 @@ Congratulations, you made it through Karel the Robot! We hope that you
 enjoyed the textbook and exercises. If you can think of any way to 
 improve the application Karel the Robot or this textbook, we would like
 to hear from you. If you have an interesting new game or exercise for 
-Karel, please let us know as well. 
-\newpage
+Karel, please let us know as well. \\
 
 \noindent
 You are now ready to dive into a next programming language! We would 
