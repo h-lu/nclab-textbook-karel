@@ -102,11 +102,11 @@ has a home in the maze, and longer commands were replaced with simpler ones, suc
 {\tt leftturn} with {\tt left}, {\tt move} with {\tt go}, 
 {\tt pickbeeper} with {\tt get} and {\tt putbeeper} with {\tt put}. 
 
-NCLab's Karel has a Manual Mode and three Programming Modes. Programming 
-Modes 1 and 2 exactly correspond to the original Pattis' book. Programming Mode 3 
+NCLab's Karel has a Manual mode and three Programming modes. Programming 
+modes 1 and 2 exactly correspond to the original Pattis' book. Programming mode 3 
 introduces variables, lists, functions returning values, randomness, 
 and a GPS device for the robot. As a result, Karel can do much more in Programming 
-Mode 3. In the rest of this textbook, when we say "Karel" we always mean "NCLab's Karel".
+mode 3. In the rest of this textbook, when we say "Karel" we always mean "NCLab's Karel".
 
 \subsection{Who is Karel?}
 
@@ -157,8 +157,8 @@ which you will probably not call toy problems.
 
 The biggest conceptual difference between Karel and mainstream procedural
 programming languages such as Python, C, C++, Java or Fortran is that {\em 
-the robot does not know math}. Math is present neither in Manual Mode nor 
-in Programming Modes 1 and 2 that correspond to the Pattis' book. 
+the robot does not know math}. Math is present neither in Manual mode nor 
+in Programming modes 1 and 2 that correspond to the Pattis' book. 
 Math (except for logic) is not needed to understand how to design great 
 algorithms and to translate them into efficient computer programs. 
  
@@ -167,12 +167,12 @@ algorithms and to translate them into efficient computer programs.
 \subsection{Objectives} 
 \begin{itemize}
 \item Learn to launch Karel and work with the graphical application.
-\item Learn that Karel has several Modes and how they differ.
+\item Learn that Karel has several modes and how they differ.
 \end{itemize}
 \noindent
 The simplest way to launch Karel is to double click on the Programming icon on Desktop 
 and select Karel in the menu. This will launch the application in Programming 
-Mode 2 (which is the most frequently used one) with a demo program, as shown in Fig. 
+mode 1 with a demo program, as shown in Fig. 
 \ref{fig:init}.
 
 The demo program can be run by clicking on the green arrow button, and 
@@ -186,15 +186,15 @@ can be also erased by clicking on the "Clear cell" button under the cell.
 \includegraphics[width=0.7\textwidth]{img/init.png}
 \end{center}
 \vspace{-2mm}
-\caption{Launching Karel in Programming Mode 2, with a demo program.}
+\caption{Launching Karel in Programming mode 1, with a demo program.}
 \label{fig:init}
 %\vspace{-10mm}
 \end{figure}
 
 \noindent
-From Programming Mode 2, one can switch to other Programming Modes, to 
-Manual Mode, Designer Mode, and Game Mode. These Modes will be discussed 
-in more detail Paragraph \ref{modes}.
+From Programming mode 1, one can switch to Programming modes 2 and 3,
+Manual mode, Designer mode, and Game mode. These modes will be discussed 
+in more detail in Paragraph \ref{modes}.
 
 The application window contains the main menu on top,
 work area on the left, maze on the right, and status bar on the bottom.
@@ -208,7 +208,7 @@ functions. In the {\em File} menu:
       keywords that best match what you are interested in. For example, typing 
       "karel textbook" will find all textbook exercises.  
 \item {\em Publish to the web} will create a HTML address for your project. Such 
-      a link can be included in any web page (feature available starting with Basic Plan). 
+      a link can be included in any web page. 
 \end{itemize}
 The {\em Maze} menu facilitates operating with mazes, including creating a new random 
 one, duplicating an existing maze, restoring maze to its saved version, and save and remove 
@@ -224,26 +224,25 @@ Karel has in his bag.
 
 \subsection{Karel modes} \label{modes}
 
-Karel operates in six Modes:
+Karel operates in six modes:
 \begin{itemize}
-\item {\em Manual Mode:} The robot is controlled using the mouse and five buttons Go, Get, Left, Right, and Put. 
+\item {\em Manual mode.} The robot is controlled using the mouse and five buttons Go, Get, Left, Right, and Put. 
       Watch out and do not crash!
-\item {\em Programming Modes:} The robot is controlled using written programs (computer code):
-\begin{itemize}
-\item Programming Mode 1 serves 
-      as a transition layer between the Manual and Programming Modes. Programs are written using 
-      five commands {\tt go}, {\tt get}, {\tt left}, {\tt right}, and {\tt put} that exactly correspond to 
-      the buttons Go, Get, Left, Right, and Put in Manual Mode. There is also a {\tt repeat} command that 
-      will repeat any of the five basic commands a given number of times. 
-\item Programming Mode 2 is where the actual programming begins. On top of the commands from Programming Mode 1, 
-      programs can contain conditions, conditional loops, and custom commands.
-\item Programming Mode 3 goes beyond the original Pattis' book by introducing variables, lists, randomness, 
-      basic integer arithmetic, and functions that 
-      return values. In this Mode, Karel also gets a GPS device that allows him to determine his position 
+\item {\em Programming mode 1.} This mode serves 
+      as a bridge between a world where the robot is guided via clicking on buttons, and another 
+      world where he obeys written instructions. Programs are written using 
+      six commands {\tt go}, {\tt get}, {\tt left}, {\tt right}, {\tt put}, and {\tt repeat}. The
+      function of the former five corresponds exactly to the function of the buttons Go, Get, Left, 
+      Right, and Put in Manual mode. The {\tt repeat} command will repeat a given number of times 
+      any of the five basic commands, or their sequences, and it can also repeat other {\tt repeat} commands. 
+\item {\em Programming mode 2.} This is where the actual programming begins. On top of the commands 
+      from Programming mode 1, programs can contain conditions, conditional loops, and custom commands.
+\item {\em Programming mode 3.} This mode goes beyond the original Pattis' book by introducing variables, 
+      lists, random decisions, basic integer arithmetic, and functions that 
+      return values. In this mode, Karel also gets a GPS device that allows him to determine his position 
       in the maze. 
-\end{itemize}
-\item {\em Designer Mode} allows the user to create custom mazes.
-\item {\em Game Mode} makes it possible to create and play games. 
+\item {\em Designer mode} allows the user to create custom mazes.
+\item {\em Game mode} makes it possible to create and play games. 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -252,12 +251,15 @@ Karel operates in six Modes:
 
 \subsection{Objectives} 
 \begin{itemize}
-\item Learn to operate the robot in Manual mode.
+\item Learn to guide the robot by clicking on buttons whose function corresponds to elementary commands.
+\item Learn to work with spatial directions ``right'' and ``left'' relatively to the robot's orientation. 
+\item Learn to plan your path ahead of time, and think before making a move.
 \end{itemize}
 
 \subsection{Compass}
 
-Before we begin, let us review the four directions on the compass:\\[-7mm]
+Before we begin, let us review the four directions on the compass:
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -308,12 +310,12 @@ direction. This is illustrated in Fig. \ref{fig:buttons2}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Programming Mode} \label{sec:bridge}
+\section{Programming Modes} \label{sec:bridge}
 
 \subsection{Objectives} 
  
 \begin{itemize}
-\item Start operating the robot in Programming mode.
+\item Start programming!
 \item Understand the difference between {\em algorithm} and {\em program}. 
 \item Learn the difference between {\em logical} and {\em syntax} errors.
 \item Understand that {\em debugging} is an indivisible part of computer programming.
@@ -322,17 +324,16 @@ direction. This is illustrated in Fig. \ref{fig:buttons2}.
 \subsection{Typing programs}
 
 Programs for the robot are entered into a {\em code cell} located on the left.
-In Programming Mode 1, we can use the commands {\tt left}, {\tt right}, {\tt go}, {\tt get}, 
+In Programming mode 1, we can use the commands {\tt left}, {\tt right}, {\tt go}, {\tt get}, 
 {\tt put}, and {\tt repeat}.
-Their function of the first five of them 
-is the same as the function of the corresponding buttons in Manual Mode.
-One or more commands form a {\em computer program (computer code)}. Often 
+The function of the former five is the same as the function of the corresponding buttons 
+in Manual mode. One or more commands form {\em computer program (computer code)}. Often 
 we just say {\em program} or {\em code}. There are two simple rules to remember:\\
 
 \begin{gbox}
 \begin{enumerate}
 \item Always type one command per line, it greatly adds to code readability.
-\item Indentation matters - do not enter extra empty characters in front of commands. 
+\item Indentation matters - do not enter any extra empty characters in front of commands. 
 \end{enumerate}
 \end{gbox}
 \vspace{6mm}
@@ -344,12 +345,13 @@ a clean, well readable code.
 
 \subsection{Algorithm} \label{subsec:interm1}
 
-Karel will always follow your commands {\em exactly}. No exceptions. Sometimes it will happen
-to you that the robot does something else than you expected.
-In this case most likely your {\em algorithm} was wrong. An {\em algorithm} is a sequence of 
+Karel always follows your commands {\em precisely}. No exceptions. Sometimes
+the robot will do something that you will not expect. In this case most likely your 
+{\em algorithm} was wrong. An {\em algorithm} is a sequence of 
 steps (operations) that the robot follows in order to fulfill his task. Algorithms 
-are written using normal human language, not in terms of computer code. Imagine that Karel's 
-task is to pick up the gem and return home, as shown in Fig. \ref{fig:algo-1}.
+are written using normal human language, not in terms of computer code. Consider
+a maze shown in Fig. \ref{fig:algo-1} where Karel needs to pick up the gem and 
+return to his home square.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -357,28 +359,28 @@ task is to pick up the gem and return home, as shown in Fig. \ref{fig:algo-1}.
 \vspace{-0mm}
 \caption{Collect the gem and get home!}
 \label{fig:algo-1}
-\vspace{-1.5cm}
+%\vspace{-1.5cm}
 \end{center}
 \end{figure}
-\newpage
 \noindent
 An algorithm to solve this task would be:
 
 \begin{verbatim}
 Make two steps forward
-Collect the gem
-Turn around
+Collect the gem and turn around
 Make three steps forward
 \end{verbatim}
 
 \subsection{Program}
 
-{\em Computer program} or just {\em program} is created by translating an algorithm into a particular 
-programming language -- in our case the Karel language. It is always important 
-to design a good algorithm. If the algorithm is good, then translating it 
-into a computer program is straightforward. The above example is trivial of
-course, we will have a chance to work with more complicated algorithms later. 
-One possible program corresponding to the above algoritm is:\\
+{\em Computer program} or just {\em program} is created by translating an algorithm 
+to a particular programming language -- in our case to the Karel language. It is 
+extremely important to have a good algorithm. Writing a program based on a good
+algorithm is a routine. But if the algorithm is not good, the program will not 
+be good no matter what we do. 
+
+The above example is very simple indeed, but we will have a chance to work with more complicated 
+algorithms later. One possible program corresponding to that algoritm is:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -395,8 +397,8 @@ One possible program corresponding to the above algoritm is:\\
 \vspace{6mm}
 
 \noindent
-Often there is more than one way to translate an algorithm into a computer 
-program. For example, the above algorithm can be also translated into\\
+Often there is more than one way to translate an algorithm to a computer 
+program. For example, the above algorithm can be also translated to\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -410,6 +412,7 @@ program. For example, the above algorithm can be also translated into\\
 \PY{n+nf}{go}
 \end{Verbatim}
 \end{bbox}
+\vspace{6mm}
 
 \subsection{Logical and syntax errors}
 
@@ -418,15 +421,14 @@ the setting shown in Fig. \ref{fig:algo-1} and consider the algorithm
 
 \begin{verbatim}
 Make three steps forward
-Collect the gem
-Turn around
+Collect the gem and turn around
 Make three steps forward
 \end{verbatim}
-That would hurt! This algorithm makes the robot crash into the wall. 
+This is a logical error -- the algorithm makes the robot crash into the wall.
 
-Mistakes such as mis-spelling a command, writing "1O" instead of "10", or forgetting 
+In contrast to this, mistakes such as mis-spelling a command, writing "1O" instead of "10", or forgetting 
 indentation are related to {\em syntax} and they are called {\em syntax errors}. Find
-two syntax errors in the following program!\\
+three syntax errors in the following program!\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -434,7 +436,7 @@ two syntax errors in the following program!\\
 \PY{n+nf}{go}
 \PY{n+nf}{got}
 \PY{n+nf}{r1ght}
-\PY{n+nf}{right}
+\PY{n+nf}{night}
 \PY{n+nf}{go}
 \PY{n+nf}{go}
 \PY{n+nf}{go}
@@ -481,21 +483,20 @@ clicks, but it hardly could be called programming. The first programming concept
 the {\em counting loop} -- awaits us in this section. Counting loops 
 are present in all procedural programming languages and they
 allow us to repeat some action a given number of times (such 
-as three times, ten times). In Karel, counting 
-loops are done via the {\tt repeat} command, other languages
-use various constructs based on the keyword {\tt for}.  
+as three times, ten times). In Karel, counting loops are written using the 
+{\tt repeat} command. Some other languages use the keyword {\tt for}.  
 
 \subsection{Objectives} 
 
 \begin{itemize}
-\item Start learning more advanced programming concepts.
 \item Learn to make the robot repeat something a given number of times.
+\item Learn what {\em body of loop} means and that indentation matters.
 \end{itemize}
 
 \subsection{The {\tt repeat} command}
 
-Imagine that Karel needs to go get the gem as shown in 
-Fig. \ref{fig:counting-11}, and then return home. 
+Consider a maze shown in Fig. \ref{fig:counting-11} where Karel needs to 
+get the gem and return to his home square. 
 
 \begin{figure}[!ht]
 \begin{center}
@@ -525,13 +526,6 @@ In principle we could type\\
 \PY{n+nf}{get}
 \PY{n+nf}{left}
 \PY{n+nf}{left}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{go}
 \PY{n+nf}{go}
 \PY{n+nf}{go}
@@ -548,8 +542,8 @@ In principle we could type\\
 \vspace{6mm}
 
 \noindent
-and this program would get the job done. But it is not very elegant. 
-Instead, the same can be achieved by telling Karel to {\tt repeat} the {\tt go} 
+and this program would get the job done. But that program would not get you hired as a computer
+programmer. The same can be achieved by telling Karel to {\tt repeat} the {\tt go} 
 command {\tt 10} times, get the gem, turn back, and  {\tt repeat} the {\tt go} 
 command another {\tt 11} times:\\
 
@@ -563,6 +557,13 @@ command another {\tt 11} times:\\
 \PY{c}{\PYZsh{} Turn back:}
 \PY{k}{repeat} 2
     \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Walk home:}
 \PY{k}{repeat} 11
     \PY{n+nf}{go}
@@ -571,7 +572,7 @@ command another {\tt 11} times:\\
 \vspace{6mm}
 
 \noindent
-We even saved space for comments! All text that follows the hash symbol '{\tt \#}' 
+Notice the comments -- all text that follows the hash symbol '{\tt \#}' 
 is ignored by the interpreter till the end of line. \\
 
 \begin{gbox}
@@ -676,7 +677,6 @@ per line, we would also need two lines.
 But consider the situation shown in Fig. \ref{fig:repeat-14} and imagine
 that Karel has to walk around the block now, returning to his original 
 position.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -715,7 +715,6 @@ two streets that separate four blocks, as shown in Fig. \ref{fig:repeat-15}. His
 task is to walk around each block, always returning to his initial position before 
 starting a new block. 
 
-\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=9.5cm]{img/repeat-15.png}
@@ -848,7 +847,8 @@ the Edit menu.
 \section{Conditions} \label{sec:cond}
 
 After a short intermission in Section \ref{sec:editmenu} we are going to explore
-another fundamental programming concept -- {\em conditional execution of code}. Conditions 
+another fundamental programming concept -- {\em conditional execution of code}. Make
+sure to switch to Programming mode 2 in the menu. Conditions 
 are present in all programming languages and they allow us to 
 handle various situations as they arise while the program is running. In Karel's case, 
 conditions will mostly be related to checking his surroundings via the five sensors
@@ -1894,7 +1894,7 @@ odd
 
 \section{Variables and Functions} \label{sec:var}
 
-In this Section we are entering exciting Programming Mode 3 where Karel grows up and leaves the 
+In this Section we are entering exciting Programming mode 3 where Karel grows up and leaves the 
 home of his parents to experience life on his own. Therefore, his home will not be 
 present in the maze anymore. There are additional changes
 that reflect Karel's growing up -- there is a GPS 
@@ -1902,7 +1902,7 @@ device that he can use to determine his position in the maze, he can print messa
 work with variables and lists, employ functions that return values, use more complex 
 logical operations, make random 
 decisions and more. Do not forget to switch to 
-Programming Mode 3. A compact overview of new functionality in Programming Mode 3 can be found 
+Programming mode 3. A compact overview of new functionality in Programming mode 3 can be found 
 in Section \ref{sec:newfunc3}.
 
 \subsection[\ \ Objectives]{Objectives} 
@@ -2072,7 +2072,7 @@ Notice that each comma means the inclusion of one empty character:
 
 \subsection[\ \ Defining custom functions]{Defining custom functions}
 
-In Programming Mode 3 we can use the reserved word {\tt return} inside the body of
+In Programming mode 3 we can use the reserved word {\tt return} inside the body of
 a command to return a value. Such commands are then called {\em functions}. 
 They are also defined using the keyword {\tt def}. For example, the following function
 {\tt count\_steps} will return the number of steps the robot needed to 
@@ -3014,7 +3014,7 @@ And finally, truth table for logical {\tt not} is:\\
 
 \subsection{\ \ Using random moves to search entire maze}
 
-In Programming Mode 3 Karel can make random decisions via the command {\tt rand}
+In Programming mode 3 Karel can make random decisions via the command {\tt rand}
 that returns with equal probability either {\tt True} or {\tt False}. 
 Typical usage of this command is \\
 
@@ -3151,9 +3151,9 @@ Credit for this example goes to Ed Keppelmann from UNR.
 
 \section{Appendix - Overview of Functionality by Mode}\label{sec:newfunc3}
 
-\subsection[\ \ Manual Mode (Section \ref{sec:manual})]{Manual Mode (Section \ref{sec:manual})}
+\subsection[\ \ Manual mode (Section \ref{sec:manual})]{Manual mode (Section \ref{sec:manual})}
 
-In Manual Mode, Karel can be guided by clicking on buttons:
+In Manual mode, Karel can be guided by clicking on buttons:
 \begin{itemize}
 \item Go ... make one step forward.
 \item Left ... turn left.
@@ -3162,9 +3162,9 @@ In Manual Mode, Karel can be guided by clicking on buttons:
 \item Get ... pick up a gem from the ground.
 \end{itemize}
 
-\subsection[\ \ Programming Mode 1 (Section \ref{sec:bridge})]{Programming Mode 1 (Section \ref{sec:bridge})}
+\subsection[\ \ Programming mode 1 (Sections \ref{sec:bridge} -- \ref{sec:repeat})]{Programming mode 1 (Sections \ref{sec:bridge} -- \ref{sec:repeat})}
 
-In Programming Mode 1, Karel can be guided by typing the commands:
+In Programming mode 1, Karel can be guided by typing the commands:
 \begin{itemize}
 \item {\tt go} ... make one step forward.
 \item {\tt left} ... turn left.
@@ -3174,7 +3174,7 @@ In Programming Mode 1, Karel can be guided by typing the commands:
 \item {\tt repeat} ... counting loop (repeat an action a given number of times).
 \end{itemize}
 
-\subsection[\ \ Programming Mode 2 (Sections \ref{sec:repeat} -- \ref{sec:recursion})]{Programming Mode 2 (Sections \ref{sec:repeat} -- \ref{sec:recursion})}
+\subsection[\ \ Programming mode 2 (Sections \ref{sec:cond} -- \ref{sec:recursion})]{Programming mode 2 (Sections \ref{sec:cond} -- \ref{sec:recursion})}
 
 New commands:
 \begin{itemize}
@@ -3195,7 +3195,7 @@ New functionality:
 \item Recursion (a command can make a call to itself).
 \end{itemize}
 
-\subsection[\ \ Programming Mode 3 (Sections \ref{sec:var}, \ref{sec:logic})]{Programming Mode 3 (Sections \ref{sec:var}, \ref{sec:logic})}
+\subsection[\ \ Programming mode 3 (Sections \ref{sec:var}, \ref{sec:logic})]{Programming mode 3 (Sections \ref{sec:var}, \ref{sec:logic})}
 
 New keywords:
 \begin{itemize}
