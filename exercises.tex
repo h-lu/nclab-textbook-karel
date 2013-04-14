@@ -475,12 +475,63 @@ Go, Left, Right, Put and Get appear, as shown in Fig. \ref{fig:buttons2222}.\\[-
 \vspace{-4mm}
 \caption{Karel faces an array of randomly-high poles.}
 \label{fig:e06}
-\vspace{-10mm}
+%\vspace{-10mm}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Programming Mode 2 - Custom Commands}
+
+\subsection{Gem jam}
+
+{\em In this maze, gems are distributed randomly along the walls. Otherwise 
+the maze is empty. Karel's home is in the south-west corner, and the robot 
+stands on the right of it, facing east. Write a program for Karel to collect 
+all the gems and return home!}
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f10.png}
+\end{center}
+\vspace{-4mm}
+\caption{Gems are distributed randomly along the walls.}
+\label{fig:f10}
+%\vspace{-1cm}
+\end{figure}
+
+\subsection{Diamond staircase}
+
+{\em Write a program for Karel to climb the staircase, collect all gems, and 
+enter his home square. The number of steps in the staircase is random. }
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f06.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel's home is on top of a diamond staircase.}
+\vspace{-4mm}
+\label{fig:f06}
+\end{figure}
+
+\subsection{Pirate ship}
+
+{\em Karel is on a pirate ship! Write a program for the robot to collect all 
+gems and run to his home square before the pirates are back. Karel 
+needs to be extremely efficient to survive, so there should be 
+no repeated code whatsoever in your program!}\\[-9mm]
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f05.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel found a pirates' treasure.}
+\label{fig:f05}
+\vspace{-1.2cm}
+\end{figure}
 
 \subsection{Four stars}
 
@@ -497,92 +548,6 @@ Go, Left, Right, Put and Get appear, as shown in Fig. \ref{fig:buttons2222}.\\[-
 \end{figure}
 \newpage
 
-
-
-\subsection{Transport}
-
-{\em Write a program for the robot to move a 6x6 square of gems from the north-west
-corner to the south-east corner of the maze, and return to his home square.}
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/f02.png}
-\end{center}
-\vspace{-4mm}
-\caption{These gems need to be transported to the opposite corner of the maze.}
-\label{fig:f02}
-\end{figure}
-\vspace{-1cm}
-
-
-
-\subsection{Egg hunt}
-
-{\em There are six cells and each contains several randomly distributed eggs (gems). 
-Write a program for Karel to collect all of them!}
-
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/f03.png}
-\end{center}
-\vspace{-4mm}
-\caption{Easter is here, and Karel is on egg hunt!}
-\vspace{-1cm}
-\label{fig:f03}
-\end{figure}
-\newpage
-
-
-\subsection{Pool repair}
-
-{\em Karel stands below the south-west corner of a rectangular pool, facing east. His home square is right behind him. The pool has random dimensions, and it contains a random number of leaks. Each of them is exactly one tile large. Write a program for the robot to seal all leaks by gems and return to his home square!}\\[-9mm]
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/f04.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel is repairing a leaking pool.}
-\label{fig:f04}
-\end{figure}
-\vspace{-1.2cm}
-
-\subsection{Pirate ship}
-
-{\em Karel is on a pirate ship! Write a program for the robot to collect all 
-gems and run to his home square before the pirates are back. Karel 
-needs to be extremely efficient to survive, so there should be 
-no repeated code whatsoever in your program!}\\[-9mm]
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/f05.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel found a pirate treasure.}
-\label{fig:f05}
-\vspace{-1.2cm}
-\end{figure}
-\newpage
-
-
-\subsection{Diamond staircase}
-
-{\em Write a program for Karel to climb the staircase, collect all gems, and 
-get home. The number of steps in the staircase is random. }
-
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/f06.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel's home is on top of a diamond staircase.}
-\vspace{-4mm}
-\label{fig:f06}
-\end{figure}
-
 \subsection{Gems for friends}
 
 {\em Karel has three gems in his bag, that he wants to give to his three friends R2, D2 and Marvin who live close by. Write a program for Karel to put a gem on the ground in the middle of each friend's home, and then return to his own home.}\\[-8mm]
@@ -597,24 +562,59 @@ get home. The number of steps in the staircase is random. }
 \label{fig:f08}
 \vspace{-10mm}
 \end{figure}
-\newpage
 
-\subsection{Gem jam}
+\subsection{Transport}
 
-{\em In this maze, gems are distributed randomly along the walls. Otherwise 
-the maze is empty. Karel's home is in the south-west corner, and the robot 
-stands on the right of it, facing east. Write a program for Karel to collect 
-all the gems and return home!}\\[-7mm]
+{\em Write a program for the robot to move a 6x6 square of gems from the north-west
+corner to the south-east corner of the maze, and return to his home square.}\\[-8mm]
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/f10.png}
+\includegraphics[height=0.4\textwidth]{img/f02.png}
 \end{center}
 \vspace{-4mm}
-\caption{Gem Jam!}
-\label{fig:f10}
-\vspace{-1cm}
+\caption{These gems need to be transported to the opposite corner of the maze.}
+\label{fig:f02}
 \end{figure}
+\vspace{-1cm}
+\newpage
+
+\subsection{Egg hunt}
+
+{\em There are six cells and each contains several randomly distributed eggs (gems). 
+Write a program for Karel to collect all of them!}\\[-9mm]
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f03.png}
+\end{center}
+\vspace{-4mm}
+\caption{Easter is here, and Karel is on egg hunt.}
+\vspace{-1.2cm}
+\label{fig:f03}
+\end{figure}
+
+
+\subsection{Pool repair}
+
+{\em Karel stands below the south-west corner of a rectangular pool, facing east. His home square is right behind him. The pool has random dimensions, and it contains a random number of leaks. Each of them is exactly one tile large. Write a program for the robot to seal all leaks by gems and return to his home square!}\\[-9mm]
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f04.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel is repairing a leaking pool.}
+\label{fig:f04}
+\vspace{-1.4cm}
+\end{figure}
+\newpage
+
+
+
+
+
 
 
 \subsection{The matrix}
@@ -630,7 +630,6 @@ all the gems and return home!}\\[-7mm]
 \label{fig:f11}
 \end{figure}
 \vspace{-1cm}
-\newpage
 
 
 
@@ -648,6 +647,7 @@ all the gems and return home!}\\[-7mm]
 \label{fig:f12}
 \vspace{-1cm}
 \end{figure}
+\newpage
 
 
 \subsection{Border patrol}
@@ -664,7 +664,6 @@ right-hand rule. Do not forget to pick up all gems that you find on the way.}
 \label{fig:f13}
 \vspace{-1cm}
 \end{figure}
-\newpage
 
 
 
@@ -677,6 +676,7 @@ a similar technique - he leaves behind him a chain of gems that helps him
 to safely find his way back home. Your program needs to work for an 
 arbitrary maze. You can assume that the string of gems is continuous 
 and that it does not contain any loops.}
+\newpage
 
 
 \begin{figure}[!ht]
