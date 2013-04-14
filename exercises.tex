@@ -401,7 +401,8 @@ Go, Left, Right, Put and Get appear, as shown in Fig. \ref{fig:buttons2222}.\\[-
 
 \subsection{Treasure of the Pharaohs}
 
-{\em Karel is hunting for the legendary Treasure of the Pharaoh's. He is almost there - one last deadly trap awaits him! He stands in complete darkness, at the cross-section of four tunnels. He is facing a random direction - either North, West, South or East. He knows that the West tunnel leads to the treasure while the remaining three contain a metal-eating bacteria that would destroy him. Using the map of the pyramid that you can see, write a program for Karel to collect all gems and enter his home square! Can you do it using just {\bf 11 lines of code}?}\\[-9mm]
+{\em Karel is hunting for the legendary Treasure of the Pharaoh's. He is almost there - one last deadly trap awaits him! He stands in complete darkness, at the cross-section of four tunnels. He is facing a random direction - either North, West, South or East. He knows that the West tunnel leads to the treasure while the remaining three contain a metal-eating bacteria that would destroy him. Using the map of the pyramid that you can see, write a program for Karel to collect all gems and enter his home square! Can you do it using just {\bf 11 lines of code} and not use the {\tt while} command?}
+\newpage
 
 
 \vspace{-5mm}
@@ -410,116 +411,69 @@ Go, Left, Right, Put and Get appear, as shown in Fig. \ref{fig:buttons2222}.\\[-
 \includegraphics[height=0.4\textwidth]{img/d04.png}
 \end{center}
 \vspace{-4mm}
-\caption{Collecting gems from 11 shelves.}
+\caption{Treasure of the Pharaohs.}
 \label{fig:d04}
-%\vspace{-12mm}
+\vspace{-10mm}
 \end{figure}
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Programming Mode 2 - Conditional Loop}
 
-\subsection{Southwest}
+\subsection{Hide and seek}
 
-{\em Karel stands at a random position in the maze, facing a random direction. The maze is empty -- no walls or gems. Write a program for the robot to get to his home which is in the south-west corner! Not counting comments, your program should have 
-at most {\bf nine lines}.}\\[-8mm]
+{\em Karel is playing hide-and-seek with his friends. They left on the ground a chain of gems that will help the robot find them. They gave Karel the following instructions: He should walk straight ahead, and whenever he finds a gem, he should turn left and walk straight ahead again. Write a program for Karel to do this, and do not forget to collect all gems on the way! Your program should have at most {\bf 5 lines}.}\\[-7mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/e01.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel only knows that his home is in the SW corner of the maze.}
-\label{fig:e01}
-\vspace{-10mm}
+\caption{Karel plays hide-and-seek with his friends.}
+\label{fig:e02}
 \end{figure}
+\vspace{-10mm}
 \newpage
 
+\subsection{Wall}
 
-\subsection{Hide and seek}
-
-{\em Karel's friends are hiding. To find them, he has to straight ahead 
-and whenever he finds a gem, he has to collect it, 
-turn left, and keep walking. Eventually, they said, he will get to the place 
-where they are. Write a program for Karel to find his friends!}\\[-7mm]
-
+{\em Karel stands next to a straight wall of random length and faces a random direction. The wall is not touching the border of the maze. The robot's home square is adjacent to the wall but on the other side. Write a program for the robot to get there!}\\[-7mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/e02.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel plays hide-and-seek with his friends.}
-\label{fig:e02}
-\end{figure}
+\caption{Karel's home square is on the other side of the wall.}
+\label{fig:e03}
 \vspace{-10mm}
+\end{figure}
 
+\subsection{Spiral maze}
 
-\subsection{Other side}
-
-{\em Karel stands next to a straight wall of random length. The wall is not touching the border of the maze. The robot's home is somewhere on the other side of it but he does not know exactly where. Write a program for the robot to get there!}\\[-7mm]
+{\em Karel stands at the beginning of a spiral maze, facing South. The spiral can be either clock-wise or counter clock-wise oriented. Write a program for Karel to get to his home square, collecting all gems on the way!}\\[-7mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/e03.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel knows that his home is somewhere on the other side of the wall.}
-\label{fig:e03}
+\caption{Karel is collecting gems in a spiral maze.}
+\label{fig:e04}
 \vspace{-10mm}
 \end{figure}
 \newpage
 
-\subsection{Spiral}
+\subsection{Skyline}
 
-{\em Write a program for Karel to get home. Your program should not have more than {\bf four lines}.}
+{\em Karel stands in the south-west corner of the maze, facing east. In front of him is an array of poles of random heights. Between some of them, gems lie on the ground. Write a program for the robot to collect all gems and enter his home square!}\\[-7mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/e04.png}
 \end{center}
 \vspace{-4mm}
-\caption{This time, Karel's home is in a spiral maze.}
-\label{fig:e04}
-\vspace{-10mm}
-\end{figure}
-
-
-
-\subsection{Spiral II}
-
-{\em Write a program for Karel to get home, collecting all the randomly placed 
-gems on the way. There may be multiple gems in some squares. 
-Your program should not have more than {\bf six lines}.}
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/e05.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel needs to get home, collecting all the gems on the way.}
-\label{fig:e05}
-\vspace{-10mm}
-\end{figure}
-\newpage
-
-
-
-\subsection{Skyline}
-
-{\em Karel stands in the south-west corner of the maze, facing east. There 
-is an array of randomly high poles and between some of them, there is a gem
-on the ground. Write a program for the robot to collect all gems and get 
-home!}\\[-7mm]
-
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/e06.png}
-\end{center}
-\vspace{-4mm}
-\caption{This time Karel faces an array of randomly-high poles.}
+\caption{Karel faces an array of randomly-high poles.}
 \label{fig:e06}
 \vspace{-10mm}
 \end{figure}
@@ -530,7 +484,7 @@ home!}\\[-7mm]
 
 \subsection{Four stars}
 
-{\em This time Karel has to collect four stars of gems!}\\[-8mm]
+{\em Define a custom command to collect one star of gems, and use it four times!}\\[-8mm]
 
 \begin{figure}[!ht]
 \begin{center}
@@ -545,17 +499,17 @@ home!}\\[-7mm]
 
 
 
-\subsection{Haul 36}
+\subsection{Transport}
 
-{\em Write a program for the robot to move the 6x6 square of gems to the 
-opposite corner of the maze. The task is finished when the robot is back home.}
+{\em Write a program for the robot to move a 6x6 square of gems from the north-west
+corner to the south-east corner of the maze, and return to his home square.}
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/f02.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel needs to move the gems to the opposite corner of the maze.}
+\caption{These gems need to be transported to the opposite corner of the maze.}
 \label{fig:f02}
 \end{figure}
 \vspace{-1cm}
@@ -564,7 +518,8 @@ opposite corner of the maze. The task is finished when the robot is back home.}
 
 \subsection{Egg hunt}
 
-{\em Write a program for Karel to search all cells and collect all eggs (gems) that he can find. The task is finished when the robot is back home.}
+{\em There are six cells and each contains several randomly distributed eggs (gems). 
+Write a program for Karel to collect all of them!}
 
 
 \begin{figure}[!ht]
@@ -572,36 +527,33 @@ opposite corner of the maze. The task is finished when the robot is back home.}
 \includegraphics[height=0.4\textwidth]{img/f03.png}
 \end{center}
 \vspace{-4mm}
-\caption{Easter is here, Karel is on egg hunt!}
+\caption{Easter is here, and Karel is on egg hunt!}
 \vspace{-1cm}
 \label{fig:f03}
 \end{figure}
 \newpage
 
 
-\subsection{Blind carpenter}
+\subsection{Pool repair}
 
-{\em Karel is a blind carpenter who needs to install windows (gems) into a newly built house. All he knows is that the house is a rectangle and that each window is exactly one tile large, But he can't see where the openings for the windows are. Install the windows and return home!}
-
+{\em Karel stands below the south-west corner of a rectangular pool, facing east. His home square is right behind him. The pool has random dimensions, and it contains a random number of leaks. Each of them is exactly one tile large. Write a program for the robot to seal all leaks by gems and return to his home square!}\\[-9mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/f04.png}
 \end{center}
 \vspace{-4mm}
-\caption{This time Karel installs windows.}
+\caption{Karel is repairing a leaking pool.}
 \label{fig:f04}
 \end{figure}
-\vspace{-1cm}
-
-
+\vspace{-1.2cm}
 
 \subsection{Pirate ship}
 
-{\em Karel is on a pirate ship! Write a program for him to collect all 
-gems and run away (to his home) before the pirates are back. Here Karel 
-needs to be extremely efficient to survive. Therefore, there should be 
-no repeating parts whatsoever in your program!}\\[-7mm]
+{\em Karel is on a pirate ship! Write a program for the robot to collect all 
+gems and run to his home square before the pirates are back. Karel 
+needs to be extremely efficient to survive, so there should be 
+no repeated code whatsoever in your program!}\\[-9mm]
 
 \begin{figure}[!ht]
 \begin{center}
@@ -610,7 +562,7 @@ no repeating parts whatsoever in your program!}\\[-7mm]
 \vspace{-4mm}
 \caption{Karel found a pirate treasure.}
 \label{fig:f05}
-\vspace{-1cm}
+\vspace{-1.2cm}
 \end{figure}
 \newpage
 
@@ -626,29 +578,10 @@ get home. The number of steps in the staircase is random. }
 \includegraphics[height=0.4\textwidth]{img/f06.png}
 \end{center}
 \vspace{-4mm}
-\caption{This time Karel has to do some climbing.}
+\caption{Karel's home is on top of a diamond staircase.}
 \vspace{-4mm}
 \label{fig:f06}
 \end{figure}
-
-
-
-\subsection{Plucking flowers}
-
-{\em Write a program for Karel to pluck all flowers that grow at the fence of his garden (gems), and get back home! Note two levels of repetition.}\\[-7mm]
-
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/f07.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel is plucking flowers along his fence.}
-\vspace{-10mm}
-\label{fig:f07}
-\end{figure}
-\newpage
-
 
 \subsection{Gems for friends}
 
@@ -664,23 +597,7 @@ get home. The number of steps in the staircase is random. }
 \label{fig:f08}
 \vspace{-10mm}
 \end{figure}
-
-\subsection{Diamond rectangle}
-
-{\em Karel stands in front of a diamond rectangle of unknown dimensions. Write a program for the robot to walk around the rectangle, collect all gems, and get home!}\\[-8mm]
-
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/f09.png}
-\end{center}
-\vspace{-4mm}
-\caption{This time Karel does not know the size of the rectangle.}
-\label{fig:f09}
-\end{figure}
-\vspace{-1.2cm}
 \newpage
-
 
 \subsection{Gem jam}
 
