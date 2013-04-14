@@ -1608,287 +1608,6 @@ reliable, correct, and healthy.
 
 \noindent
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Recursion} \label{sec:recursion}
-
-\subsection{Objectives} 
- 
-\begin{itemize}
-\item Understand what recursion is and when it can be useful.
-\item Learn to write good recursive algorithms.
-\end{itemize}
-By a {\em recursive} algorithm we mean an algorithm that makes a call to itself. How does it sound?
-In our life we use recursion all the time, without noticing it. For example, when we descend 
-a staircase, our algorithm is:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-Descend_staircase
-    Descend_one_step
-    If this_was_not_the_last_step
-        Descend_staircase
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Recursion is not applicable to all types of problems, but it can be very 
-helpful, especially for problems where we can
-\begin{itemize}
-\item reduce the problem to a similar one which is smaller in size, 
-\item apply the same algorithm to the smaller problem. 
-\end{itemize}
-In the program, this means that some command calls itself, either 
-directly or through other commands.
-
-\subsection[\ \ How it works]{How it works} 
-
-Consider the following Karel program:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} reach_wall
-    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-        \PY{n+nf}{go}
-        reach_wall
-
-reach_wall
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Imagine that the initial position of the robot is like in Fig. \ref{fig:rec1}.
-
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=6cm]{img/rec-1.png}
-\end{center}
-\vspace{-4mm}
-\caption{Robot's initial position.}
-\label{fig:rec1}
-\vspace{-4mm}
-\end{figure}
-\noindent
-When the command {\tt reach\_wall} is first called, the robot stands three steps away from the wall and 
-thus the {\tt if not wall} condition passes. Then the command {\tt go} follows and the robot's 
-position changes as shown in Fig. \ref{fig:rec2}. 
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=6cm]{img/rec-2.png}
-\end{center}
-\vspace{-4mm}
-\caption{Robot's position after making the first step forward.}
-\label{fig:rec2}
-\vspace{-4mm}
-\end{figure}
-\noindent
-Next the robot executes the {\tt reach\_wall} command that follows the {\tt go} command. A good way to 
-understand what happens is to imagine that the command is replaced with its own body. So the corresponding 
-code would look as follows:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-    \PY{n+nf}{go}
-    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-        \PY{n+nf}{go}
-        reach_wall
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Since the robot is two steps away from the wall, the second {\tt if not wall} condition passes and 
-he makes a second step forward. His new position is shown in Fig. \ref{fig:rec3}.
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=6cm]{img/rec-3.png}
-\end{center}
-\vspace{-4mm}
-\caption{Robot's position after making the second step forward.}
-\label{fig:rec3}
-\vspace{-4mm}
-\end{figure}
-\noindent
-Next the robot executes the third {\tt reach\_wall} command. Again we can imagine that the command 
-is replaced with its own body. The corresponding code would look as follows:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-    \PY{n+nf}{go}
-    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-        \PY{n+nf}{go}
-        \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-            \PY{n+nf}{go}
-            reach_wall
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Since the robot is one step away from the wall, the third {\tt if not wall} condition passes and 
-he makes a third step forward. His new position is shown in Fig. \ref{fig:rec4}.
-\newpage
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=6cm]{img/rec-4.png}
-\end{center}
-\vspace{-4mm}
-\caption{Robot's position after making the third step forward.}
-\label{fig:rec4}
-%\vspace{-10mm}
-\end{figure}
-\noindent
-Now the robot stands in front of the wall, so it gets more interesting. The 
-{\tt reach\_wall} command is executed one more time, so we can imagine that its body 
-is pasted into the code one last time:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-    \PY{n+nf}{go}
-    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-        \PY{n+nf}{go}
-        \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-            \PY{n+nf}{go}
-            \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-                \PY{n+nf}{go}
-                reach_wall
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-However, now the {\tt if not wall} condition does not pass, which means that  
-the program is finished!
-
-\subsection[\ \ The base case]{The base case}
-
-In the last example we have observed one important fact: To prevent infinite recursion, we 
-used an {\tt if} statement. The {\tt else} statement was omitted which meant "else do nothing".
-In recursive algorithms, we always need an {\tt if} or {\tt if-else} statement of some sort, 
-where one branch makes a recursive call while the other one does not. 
-The branch without a recursive call is called the {\em base case}. A bad example 
-of a recursive command without a base case would be\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} left_forever
-    \PY{n+nf}{left}
-    left_forever
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-This program is an infinite recursion that needs to be stopped using the 
-red stop button.
-
-\subsection[\ \ When should recursion be used?]{When should recursion be used?}
-
-The recursive command {\tt reach\_wall} that we defined above may not be the most useful example 
-since the same functionality could be achieved more elegantly without recursion, just with\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} reach_wall
-    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-        \PY{n+nf}{go}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-If there is a small task that needs to be solved repeatedly in order to get a bigger task done,
-then often one can write both a non-recursive and recursive version. Recall for example the Diamond
-Staircase example from Section \ref{sec:newcom}. The small task there was to climb one step and pick 
-up the gem, ending up facing east. A non-recursive version of the algorithm would be:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} climb_one_step
-    \PY{n+nf}{left}
-    \PY{n+nf}{go}
-    \PY{n+nf}{right}
-    \PY{n+nf}{go}
-    \PY{n+nf}{get}
-
-\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
-    climb_one_step
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-A recursive version of the same:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} climb_the_stairs
-    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
-        \PY{n+nf}{left}
-        \PY{n+nf}{go}
-        \PY{n+nf}{right}
-        \PY{n+nf}{go}
-        \PY{n+nf}{get}
-        climb_the_stairs
-
-climb_the_stairs
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-If an algorithm comes in both a recursive and a non-recursive version, then the following 
-should be taken into account:
-\begin{itemize}
-\item The recursive version will be slightly slower than a non-recursive one. The reason is 
-      the overhead related to creating a new instance of the recursive command and calling it. 
-\item The recursive version will also require more memory -- when a recursive command is called 
-      1000 times, then it actually exists in 1000 copies in the memory. Hence, recursion is 
-      not recommended with very large numbers of repetitions.
-\end{itemize}
-Recursive algorithms are used mainly where non-recursive ones are cumbersome to design. 
-For example, much code written for traversing tree-like data structures is recursive. Also certain 
-sorting algorithms are more naturally written in recursive form. We will discuss these subjects 
-in more detail later.
-
-\subsection[\ \ Mutually recursive commands]{Mutually recursive commands}
-
-Recursion can have interesting forms. For example, there can be a pair of commands
-that call themselves mutually, such as the commands {\tt odd} and 
-{\tt even} in the following example (that also solves the Diamond Staircase
-problem). Note the presence of base case in both recursive commands:\\
- 
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} climb_step
-    \PY{n+nf}{left}
-    \PY{n+nf}{go}
-    \PY{n+nf}{right}
-    \PY{n+nf}{go}
-    \PY{n+nf}{get} 
-
-\PY{k}{def} odd
-    \PY{k}{if} not home
-        climb_step
-        even
-
-\PY{k}{def} even
-    \PY{k}{if} not home
-        climb_step
-        odd
-    
-odd
-\end{Verbatim}
-\end{bbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -3146,6 +2865,287 @@ gems along the South wall approximate the binomial distribution.
 \noindent
 Credit for this example goes to Ed Keppelmann from UNR. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Recursion} \label{sec:recursion}
+
+\subsection{\ \ Objectives} 
+ 
+\begin{itemize}
+\item Understand what recursion is and when it can be useful.
+\item Learn to write good recursive algorithms.
+\end{itemize}
+By a {\em recursive} algorithm we mean an algorithm that makes a call to itself. How does it sound?
+In our life we use recursion all the time, without noticing it. For example, when we descend 
+a staircase, our algorithm is:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+Descend_staircase
+    Descend_one_step
+    If this_was_not_the_last_step
+        Descend_staircase
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Recursion is not applicable to all types of problems, but it can be very 
+helpful, especially for problems where we can
+\begin{itemize}
+\item reduce the problem to a similar one which is smaller in size, 
+\item apply the same algorithm to the smaller problem. 
+\end{itemize}
+In the program, this means that some command calls itself, either 
+directly or through other commands.
+
+\subsection[\ \ How it works]{How it works} 
+
+Consider the following Karel program:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} reach_wall
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+        reach_wall
+
+reach_wall
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Imagine that the initial position of the robot is like in Fig. \ref{fig:rec1}.
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=6cm]{img/rec-1.png}
+\end{center}
+\vspace{-4mm}
+\caption{Robot's initial position.}
+\label{fig:rec1}
+\vspace{-4mm}
+\end{figure}
+\noindent
+When the command {\tt reach\_wall} is first called, the robot stands three steps away from the wall and 
+thus the {\tt if not wall} condition passes. Then the command {\tt go} follows and the robot's 
+position changes as shown in Fig. \ref{fig:rec2}. 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=6cm]{img/rec-2.png}
+\end{center}
+\vspace{-4mm}
+\caption{Robot's position after making the first step forward.}
+\label{fig:rec2}
+\vspace{-4mm}
+\end{figure}
+\noindent
+Next the robot executes the {\tt reach\_wall} command that follows the {\tt go} command. A good way to 
+understand what happens is to imagine that the command is replaced with its own body. So the corresponding 
+code would look as follows:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+        reach_wall
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Since the robot is two steps away from the wall, the second {\tt if not wall} condition passes and 
+he makes a second step forward. His new position is shown in Fig. \ref{fig:rec3}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=6cm]{img/rec-3.png}
+\end{center}
+\vspace{-4mm}
+\caption{Robot's position after making the second step forward.}
+\label{fig:rec3}
+\vspace{-4mm}
+\end{figure}
+\noindent
+Next the robot executes the third {\tt reach\_wall} command. Again we can imagine that the command 
+is replaced with its own body. The corresponding code would look as follows:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+        \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+            \PY{n+nf}{go}
+            reach_wall
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Since the robot is one step away from the wall, the third {\tt if not wall} condition passes and 
+he makes a third step forward. His new position is shown in Fig. \ref{fig:rec4}.
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=6cm]{img/rec-4.png}
+\end{center}
+\vspace{-4mm}
+\caption{Robot's position after making the third step forward.}
+\label{fig:rec4}
+%\vspace{-10mm}
+\end{figure}
+\noindent
+Now the robot stands in front of the wall, so it gets more interesting. The 
+{\tt reach\_wall} command is executed one more time, so we can imagine that its body 
+is pasted into the code one last time:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+        \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+            \PY{n+nf}{go}
+            \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+                \PY{n+nf}{go}
+                reach_wall
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+However, now the {\tt if not wall} condition does not pass, which means that  
+the program is finished!
+
+\subsection[\ \ The base case]{The base case}
+
+In the last example we have observed one important fact: To prevent infinite recursion, we 
+used an {\tt if} statement. The {\tt else} statement was omitted which meant "else do nothing".
+In recursive algorithms, we always need an {\tt if} or {\tt if-else} statement of some sort, 
+where one branch makes a recursive call while the other one does not. 
+The branch without a recursive call is called the {\em base case}. A bad example 
+of a recursive command without a base case would be\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} left_forever
+    \PY{n+nf}{left}
+    left_forever
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+This program is an infinite recursion that needs to be stopped using the 
+red stop button.
+
+\subsection[\ \ When should recursion be used?]{When should recursion be used?}
+
+The recursive command {\tt reach\_wall} that we defined above may not be the most useful example 
+since the same functionality could be achieved more elegantly without recursion, just with\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} reach_wall
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+If there is a small task that needs to be solved repeatedly in order to get a bigger task done,
+then often one can write both a non-recursive and recursive version. Recall for example the Diamond
+Staircase example from Section \ref{sec:newcom}. The small task there was to climb one step and pick 
+up the gem, ending up facing east. A non-recursive version of the algorithm would be:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} climb_one_step
+    \PY{n+nf}{left}
+    \PY{n+nf}{go}
+    \PY{n+nf}{right}
+    \PY{n+nf}{go}
+    \PY{n+nf}{get}
+
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
+    climb_one_step
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+A recursive version of the same:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} climb_the_stairs
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
+        \PY{n+nf}{left}
+        \PY{n+nf}{go}
+        \PY{n+nf}{right}
+        \PY{n+nf}{go}
+        \PY{n+nf}{get}
+        climb_the_stairs
+
+climb_the_stairs
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+If an algorithm comes in both a recursive and a non-recursive version, then the following 
+should be taken into account:
+\begin{itemize}
+\item The recursive version will be slightly slower than a non-recursive one. The reason is 
+      the overhead related to creating a new instance of the recursive command and calling it. 
+\item The recursive version will also require more memory -- when a recursive command is called 
+      1000 times, then it actually exists in 1000 copies in the memory. Hence, recursion is 
+      not recommended with very large numbers of repetitions.
+\end{itemize}
+Recursive algorithms are used mainly where non-recursive ones are cumbersome to design. 
+For example, much code written for traversing tree-like data structures is recursive. Also certain 
+sorting algorithms are more naturally written in recursive form. We will discuss these subjects 
+in more detail later.
+
+\subsection[\ \ Mutually recursive commands]{Mutually recursive commands}
+
+Recursion can have interesting forms. For example, there can be a pair of commands
+that call themselves mutually, such as the commands {\tt odd} and 
+{\tt even} in the following example (that also solves the Diamond Staircase
+problem). Note the presence of base case in both recursive commands:\\
+ 
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} climb_step
+    \PY{n+nf}{left}
+    \PY{n+nf}{go}
+    \PY{n+nf}{right}
+    \PY{n+nf}{go}
+    \PY{n+nf}{get} 
+
+\PY{k}{def} odd
+    \PY{k}{if} not home
+        climb_step
+        even
+
+\PY{k}{def} even
+    \PY{k}{if} not home
+        climb_step
+        odd
+    
+odd
+\end{Verbatim}
+\end{bbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

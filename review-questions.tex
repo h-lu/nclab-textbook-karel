@@ -939,72 +939,6 @@ def turnsouth
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Recursion}
-
-\begin{enumerate}
-\item There are three commands {\tt A}, {\tt B}, {\tt C}. Identify all cases of recursion in the four options below!
-\begin{enumerate}
-\item[A1] {\tt C} calls {\tt B}, {\tt B} calls {\tt A}, {\tt C} calls {\tt A}.
-\item[A2] {\tt C} calls {\tt B}, {\tt B} calls {\tt C}, {\tt C} calls {\tt A}.
-\item[A3] {\tt C} calls {\tt B}, {\tt B} calls {\tt A}, {\tt A} calls {\tt C}.
-\item[A4] {\tt C} calls {\tt B}, {\tt B} calls {\tt A}, {\tt A} calls {\tt B}.
-\end{enumerate}
-\item What do we mean by {\em base case} in recursion?
-\begin{enumerate}
-\item[A1] The initial state of the robot before executing a recursive program.
-\item[A2] Recursion where a single command calls itself directly.
-\item[A3] Branch of a conditional statement that makes a recursive call.
-\item[A4] Branch of a conditional statement that does not make a recursive call.
-\end{enumerate}
-\item What happens if base case is not present?
-\begin{enumerate}
-\item[A1] Recursion turns into an infinite loop.
-\item[A2] The program throws an error.
-\item[A3] The program will end after the first call to the recursive command.
-\item[A4] The program does not throw an error but the robot will do nothing.
-\end{enumerate}
-\item When should recursion be used?
-\begin{enumerate}
-\item[A1] The algorithm contains multiple conditional statements.
-\item[A2] The algorithm contains multiple repetitions.
-\item[A3] After solving part of the problem, the remaining task is similar to the original problem.
-\item[A4] Our program contains multiple new commands.
-\end{enumerate}
-\item Which of the four recursive commands below 
-turn(s) the robot to the North without causing an infinite loop?
-\begin{enumerate}
-\item[A1]
-\begin{bluecode}
-def turn_north
-    right
-    turn_north
-\end{bluecode}
-\item[A2] 
-\begin{bluecode}
-def turn_north
-    if not north
-        right
-    turn_north
-\end{bluecode}
-\item[A3] 
-\begin{bluecode}
-def turn_north
-    if not north
-        right
-        turn_north
-\end{bluecode}
-\item[A4] 
-\begin{bluecode}
-def turn_north
-    right
-    if not north 
-        turn_north
-\end{bluecode}
-\end{enumerate}
-\end{enumerate}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Variables and Functions}
 
 \begin{enumerate}
@@ -1270,6 +1204,72 @@ month = Z.pop(2)
 \item[A2] {\tt True}.
 \item[A3] It can be both {\tt True} and {\tt False}.
 \item[A4] Neither {\tt True} nor {\tt False}.
+\end{enumerate}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Recursion}
+
+\begin{enumerate}
+\item There are three commands {\tt A}, {\tt B}, {\tt C}. Identify all cases of recursion in the four options below!
+\begin{enumerate}
+\item[A1] {\tt C} calls {\tt B}, {\tt B} calls {\tt A}, {\tt C} calls {\tt A}.
+\item[A2] {\tt C} calls {\tt B}, {\tt B} calls {\tt C}, {\tt C} calls {\tt A}.
+\item[A3] {\tt C} calls {\tt B}, {\tt B} calls {\tt A}, {\tt A} calls {\tt C}.
+\item[A4] {\tt C} calls {\tt B}, {\tt B} calls {\tt A}, {\tt A} calls {\tt B}.
+\end{enumerate}
+\item What do we mean by {\em base case} in recursion?
+\begin{enumerate}
+\item[A1] The initial state of the robot before executing a recursive program.
+\item[A2] Recursion where a single command calls itself directly.
+\item[A3] Branch of a conditional statement that makes a recursive call.
+\item[A4] Branch of a conditional statement that does not make a recursive call.
+\end{enumerate}
+\item What happens if base case is not present?
+\begin{enumerate}
+\item[A1] Recursion turns into an infinite loop.
+\item[A2] The program throws an error.
+\item[A3] The program will end after the first call to the recursive command.
+\item[A4] The program does not throw an error but the robot will do nothing.
+\end{enumerate}
+\item When should recursion be used?
+\begin{enumerate}
+\item[A1] The algorithm contains multiple conditional statements.
+\item[A2] The algorithm contains multiple repetitions.
+\item[A3] After solving part of the problem, the remaining task is similar to the original problem.
+\item[A4] Our program contains multiple new commands.
+\end{enumerate}
+\item Which of the four recursive commands below 
+turn(s) the robot to the North without causing an infinite loop?
+\begin{enumerate}
+\item[A1]
+\begin{bluecode}
+def turn_north
+    right
+    turn_north
+\end{bluecode}
+\item[A2] 
+\begin{bluecode}
+def turn_north
+    if not north
+        right
+    turn_north
+\end{bluecode}
+\item[A3] 
+\begin{bluecode}
+def turn_north
+    if not north
+        right
+        turn_north
+\end{bluecode}
+\item[A4] 
+\begin{bluecode}
+def turn_north
+    right
+    if not north 
+        turn_north
+\end{bluecode}
 \end{enumerate}
 \end{enumerate}
 
