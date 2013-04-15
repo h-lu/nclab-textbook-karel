@@ -651,12 +651,12 @@ right-hand rule. Do not forget to pick up all gems that you find on the way.}
 \vspace{-1cm}
 \end{figure}
 
+\newpage
 
 
 \subsection{Ariadne I}
 
 {\em In an ancient Greek legend, princess Ariadne saved the life of her beloved Theseus by giving him a thread that he used to avoid getting lost in the maze of king Minos and kill a feared beast Minotaurus. Your task is to write a program for Karel to follow a trail of gems that leads to his home square. The gems form a simple path without loops. There is one additional simplification: Whenever the trail takes a turn, there will be a wall in front of the robot. Do not forget to collect all gems!}
-\newpage
 
 
 \begin{figure}[!ht]
@@ -670,6 +670,7 @@ right-hand rule. Do not forget to pick up all gems that you find on the way.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 
 \section{Programming Mode 3 - Variables and Functions}
 
@@ -688,10 +689,27 @@ robot to count the gems and return their number. Then call the function and prin
 \label{fig:h01}
 \end{figure}
 
+
+\newpage
+
+\subsection{Ariadne II}
+
+{\em This is a continuation of the problem Ariadne I. Your task is to write a program for Karel to follow a trail of gems that leads to his home square. The gems form a simple path without loops. In contrast to Ariadne I, when the trail takes a turn, there may not be a wall in front of the robot. Do not forget to collect all gems!}
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f14k.png}
+\end{center}
+\vspace{-4mm}
+\caption{Now there may not be wall in front of the robot when the trail takes a turn.}
+\label{fig:f14k}
+\end{figure}
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Programming Mode 3 - Lists}
-
 
 \subsection{Tape measure}
 
@@ -764,6 +782,9 @@ square, and 'n' is the size of the row. }
 \label{fig:h04}
 \end{figure}
 
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Programming Mode 3 - Logic and Randomness}
@@ -823,6 +844,80 @@ Use the functionality developed in the previous two tasks!}
 \caption{Karel is adding randomly generated numbers.}
 \label{fig:g12}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\section{Programming Mode 3 - Recursion}
+
+\subsection{Cheese please}
+
+{\em Karel's favorite way to eat cheese is to peel one edge at a time. His brick of 
+cheese is represented by a rectangle of gems. The rectangle has random dimensions
+and the robot's initial position is at one of the corners, as shown in Fig. \ref{fig:g01}.
+Write a recursive algorithm for the robot to eat all the cheese and return home!
+ }
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/g01.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel is eating cheese.}
+\label{fig:g01}
+\vspace{-1cm}
+\end{figure}
+\newpage
+
+
+\subsection{Speleologist}
+
+{\em Karel stands at the entrance to a cave and wants to explore it. Write a recursive program for the robot to descend the staircase to the bottom, return back, and enter his home! The number of steps in the staircase is random.}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/g02.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel became a speleologist.}
+\label{fig:g02}
+\end{figure}
+\vspace{-1cm}
+
+
+
+\subsection{Homage to lemmings}
+
+{\em  Karel has many gems in his bag, and he needs to build a heap shown in Fig. \ref{fig:g03} before he can 
+enter his home. Use recursion.}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/g03.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel needs to build a heap of gems before he can get home.}
+\label{fig:g03}
+\vspace{-1cm}
+\end{figure}
+\newpage
+
+
+\subsection{Diamond tree}
+
+{\em Karel stands under a diamond tree, with his home next to him on the the right. 
+The tree is random -- at any point it can have 
+a branch in the north-west or in the north-east direction (or in both). Write a recursive 
+algorithm for the robot to collect all gems from the tree and get home!  }
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/g04.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel is traversing a random diamond tree.}
+\label{fig:g04}
+\vspace{-10mm}
+\end{figure}
+
 
 \newpage
 
@@ -916,75 +1011,3 @@ an assault team to eliminate all enemy forces.}
 \end{figure}
 \noindent
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-
-\section{Programming Mode 3 - Recursion}
-
-\subsection{Cheese please}
-
-{\em Karel's favorite way to eat cheese is to peel one edge at a time. His brick of 
-cheese is represented by a rectangle of gems. The rectangle has random dimensions
-and the robot's initial position is at one of the corners, as shown in Fig. \ref{fig:g01}.
-Write a recursive algorithm for the robot to eat all the cheese and return home!
- }
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/g01.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel is eating cheese.}
-\label{fig:g01}
-\vspace{-1cm}
-\end{figure}
-\newpage
-
-
-\subsection{Speleologist}
-
-{\em Karel stands at the entrance to a cave and wants to explore it. Write a recursive program for the robot to descend the staircase to the bottom, return back, and enter his home! The number of steps in the staircase is random.}
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/g02.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel became a speleologist.}
-\label{fig:g02}
-\end{figure}
-\vspace{-1cm}
-
-
-
-\subsection{Homage to lemmings}
-
-{\em  Karel has many gems in his bag, and he needs to build a heap shown in Fig. \ref{fig:g03} before he can 
-enter his home. Use recursion.}
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/g03.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel needs to build a heap of gems before he can get home.}
-\label{fig:g03}
-\vspace{-1cm}
-\end{figure}
-\newpage
-
-
-\subsection{Diamond tree}
-
-{\em Karel stands under a diamond tree, with his home next to him on the the right. 
-The tree is random -- at any point it can have 
-a branch in the north-west or in the north-east direction (or in both). Write a recursive 
-algorithm for the robot to collect all gems from the tree and get home!  }
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/g04.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel is traversing a random diamond tree.}
-\label{fig:g04}
-\vspace{-10mm}
-\end{figure}
