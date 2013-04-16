@@ -674,10 +674,9 @@ right-hand rule. Do not forget to pick up all gems that you find on the way.}
 
 \section{Programming Mode 3 - Variables and Functions}
 
-\subsection{Accounting}
+\subsection{Lumberjack}
 
-{\em Karel has an unknown number of gems in his bag. Write a function {\tt accounting} for the 
-robot to count the gems and return their number. Then call the function and print the result.}
+{\em If Karel goes straight North from where he stands, he will find a log. Implement a function "lumberjack" for Karel to measure the length of the log and return it.}\\[-7mm]
 
 
 \begin{figure}[!ht]
@@ -685,54 +684,78 @@ robot to count the gems and return their number. Then call the function and prin
 \includegraphics[height=0.4\textwidth]{img/h01.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel is counting his gems.}
+\caption{Lumberjack Karel is measuring logs.}
+\vspace{-1cm}
 \label{fig:h01}
 \end{figure}
 
+\subsection{Long and winding road}
 
-\newpage
-
-\subsection{Ariadne II}
-
-{\em This is a continuation of the problem Ariadne I. Your task is to write a program for Karel to follow a trail of gems that leads to his home square. The gems form a simple path without loops. In contrast to Ariadne I, when the trail takes a turn, there may not be a wall in front of the robot. Do not forget to collect all gems!}
-
+{\em Karel stands at the beginning of a random winding road. Write a function "road" for the robot to measure the length of the road in steps, and return it! }\\[-7mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/f14k.png}
 \end{center}
 \vspace{-4mm}
-\caption{Now there may not be wall in front of the robot when the trail takes a turn.}
+\caption{Karel is measuring the length of a random winding road.}
 \label{fig:f14k}
+\vspace{-1cm}
 \end{figure}
 \newpage
+
+\subsection{Treasure}
+
+{\em Karel found a treasure which is a pyramid of gems. The pyramid has always the same shape but its height is random, and so is the distribution of the gems inside. Write a function "treasure" for the robot to count the gems and return their number. The pyramid has to stay intact.}\\[-9mm]
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f14m.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel found a pyramid of gems.}
+\label{fig:f14m}
+\vspace{-1.2cm}
+\end{figure}
+
+\subsection{Lego castle}
+
+{\em Karel built a Lego castle, but he forgot how many bricks he used. The robot stands in the Southwest corner of the maze, facing East, and the castle is in front of him. Write a function "lego" for the robot to count the bricks and return their number!}\\[-9mm]
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/f14n.png}
+\end{center}
+\vspace{-4mm}
+\caption{Karel found a pyramid of gems.}
+\label{fig:f14n}
+\vspace{-1cm}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Programming Mode 3 - Lists}
 
-\subsection{Tape measure}
+\subsection{Crate}
 
-{\em Karel stands in a rectangular room with random dimensions. Write function {\tt measure}  
-that returns a list [x, y] where 'x' and 'y' are the horizontal and vertical sizes of the room,
-respectively. Call the function and print the result.}
+{\em Karel needs to measure the dimensions of a large rectangular wooden crate that stands in front of him. The dimensions of the crate are random. Write a function "crate" that returns them as a list of two values [dim1, dim2]!}\\[-9mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/h02.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel is measuring his room.}
+\caption{Karel is measuring the dimensions of a rectangular crate.}
 \label{fig:h02}
-%\vspace{-1cm}
+\vspace{-1.2cm}
 \end{figure}
 %\newpage
 
-\newpage
 
-\subsection{Reconnaissance}
+\subsection{Map}
 
-{\em Karel stands in a rectangular room with random dimensions, that contains gems at random positions. There is at most one gem in each square. Write function {\tt gems}  that returns a list of pairs [x, y] where 'x' and 'y' are the GPS coordinates of each gem. Call the function and print the result.}
+{\em Karel has gems on his map to mark cities that he wants to visit. Now he needs to get their GPS coordinates. The map is a rectangle with random dimensions, and also the gems are distributed randomly. Write a function "map"  that returns a list of [gpsx, gpsy] pairs for all gems!}\\[-9mm]
 
 
 \begin{figure}[!ht]
@@ -740,16 +763,16 @@ respectively. Call the function and print the result.}
 \includegraphics[height=0.4\textwidth]{img/h02b.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel is locating gems.}
+\caption{The gems on Karel's map mark cities that he wants to visit.}
 \label{fig:h02b}
+\vspace{-1.2cm}
 \end{figure}
-
-
 \newpage
 
-\subsection{Orchard}
 
-{\em Trees in Karel's orchard are represented by piles of gems. The position of trees as well as the number of apples per tree are random. Initial position of the robot is in the south-west corner, facing east. There are no walls to crash into. Write a procedure {\tt orchard} for the robot to return a list of triplets [x, y, n] with one triplet per tree, where 'x' and 'y' are the GPS coordinates and 'n' the number of apples on the tree.}
+\subsection{Copycat}
+
+{\em Several square blocks are distributed randomly along the North wall of the maze. Write a program for Karel to exactly reproduce their pattern by placing gems on the corresponding positions along the South wall!}\\[-9mm]
 
 
 \begin{figure}[!ht]
@@ -757,44 +780,68 @@ respectively. Call the function and print the result.}
 \includegraphics[height=0.4\textwidth]{img/h03.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel is locating trees and counting apples in his orchard.}
+\caption{Karel is using gems to reproduce the pattern.}
+\vspace{-1.2cm}
 \label{fig:h03}
 \end{figure}
 
-\newpage
 
-\subsection{New carpet}
+\subsection{Counter clockwise}
 
-{\em Karel needs new carpet! His apartment has random but simple shape -- wherever 
-the robot stands, when he goes north, south, east or west he will always reach exterior wall.
-The initial position of the robot is at the west wall of the bottom row, facing east. 
-Write a function {\tt carpet} that returns a list of triplets [x, y, n] with one triplet for each
-row, starting with the bottom one, where 'x' and 'y' are the GPS coordinates of the left-most
-square, and 'n' is the size of the row. }
+{\em Karel stands in the Southwest (SW) corner of the maze, facing East. Each of the three remaining corners contains a 5x5 square that displays some pattern of gems. Write a program for Karel to rotate these squares counter clockwise. By this we mean that the NW square will be moved to the SE corner, SE square to NE corner, and NE square to NW corner.}\\[-9mm]
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/h04.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel is measuring his apartment before buying new carpet.}
-\vspace{-1cm}
+\caption{Karel is rotating objects rendered with gems.}
+\vspace{-1.2cm}
 \label{fig:h04}
 \end{figure}
+\newpage
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Programming Mode 3 - Advanced Logic}
+
+\subsection{Ariadne II}
+
+{\em This is a continuation of the problem Ariadne I. Your task is to write a program for Karel to follow a trail of gems that leads to his home square. The gems form a simple path without loops. This time, when the trail takes a turn, there may not be a wall in front of the robot. Do not forget to collect all gems!}
+
+\begin{figure}[!ht]
+\begin{center}
+%\includegraphics[height=0.4\textwidth]{img/f14.png}
+\vspace{6cm}
+\end{center}
+\vspace{-4mm}
+\caption{This is a continuation of problem Ariadne I.}
+\label{fig:g10b}
+\end{figure}
+
 \newpage
-\section{Programming Mode 3 - Logic and Randomness}
+
+\subsection{Historical city}
+
+{\em Karel lives in a historical city that is surrounded by a massive fortified wall. The wall needs to be repaired. Before the work can be planned, the robot needs to measure its total length. The wall is continuous, with only one opening which is the city gate. Karel stands outside, just left of the gate, facing North. Write a function "wall" for the robot to follow the wall in the clock-wise direction to its other end, and return its length!  }
+
+\begin{figure}[!ht]
+\begin{center}
+%\includegraphics[height=0.4\textwidth]{img/f14.png}
+\vspace{6cm}
+\end{center}
+\vspace{-4mm}
+\caption{Karel lives in a historical city.}
+\label{fig:g10c}
+\end{figure}
+
+\newpage
 
 \subsection{Reading numbers}
 
-{\em Each 3x5 box contains a random integer number between 0 and 9. Write a function "readnumber" 
-where Karel enters a box, determines the number in it, and returns it. Initial position of the 
-robot is at the entrance of the box, facing north. The final position of the robot should be the same. 
-Use this function to determine the numbers in the three boxes as shown in the screenshot. }
+{\em Each box contains a random integer number between 0 and 9. Write a function "readnumber" where Karel to enter a box, determine the number in it, and return it. The initial and final position of the robot is at the entrance of the box, facing North. }\\[-9mm]
 
 \begin{figure}[!ht]
 \begin{center}
@@ -802,15 +849,14 @@ Use this function to determine the numbers in the three boxes as shown in the sc
 \end{center}
 \vspace{-4mm}
 \caption{Karel is learning to read numbers.}
+\vspace{-12mm}
 \label{fig:g10}
 \end{figure}
 
 
-\newpage
-
 \subsection{Writing numbers}
 
-{\em There is a pile of gems at the entrance of each box. The number of gems in each pile is random between 0 and 9. Write a function "writenumber" where Karel counts the gems in the pile, enters the box, and renders the number. Then use the function to render numbers in three boxes as shown in the screenshot. }
+{\em There is a pile of gems at the entrance of each box. The number is random between 0 and 9. Write a function "writenumber" for Karel to count the gems in the pile, enter the box, and render the number. Then use the function to render numbers in all three boxes.}\\[-9mm]
 
 
 \begin{figure}[!ht]
@@ -820,43 +866,20 @@ Use this function to determine the numbers in the three boxes as shown in the sc
 \vspace{-4mm}
 \caption{Karel is learning to write numbers.}
 \label{fig:g11}
-\vspace{-10mm}
+\vspace{-12mm}
 \end{figure}
-
 
 \newpage
 
-\subsection{Adding numbers}
-
-\noindent
-{\em This problem can be solved with the help of the results 
-of the previous two exercises.
-The two upper boxes contain randomly generated numbers between 0 and 9. Karel stands at the entrance of the first box,
-facing north. Write a function {\tt addnumbers} where Karel will enter each box, determine the number in it,
-and then add the numbers together and return the result. Also render the result in the double-box below. 
-Use the functionality developed in the previous two tasks!}
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/i03.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel is adding randomly generated numbers.}
-\label{fig:g12}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 
 \section{Programming Mode 3 - Recursion}
 
 \subsection{Cheese please}
 
-{\em Karel's favorite way to eat cheese is to peel one edge at a time. His brick of 
-cheese is represented by a rectangle of gems. The rectangle has random dimensions
-and the robot's initial position is at one of the corners, as shown in Fig. \ref{fig:g01}.
-Write a recursive algorithm for the robot to eat all the cheese and return home!
- }
+{\em Karel's favorite way to eat cheese is to peel one edge at a time. The brick of cheese is represented by a rectangle of gems with random dimensions. The robot's initial position is at one of the corners. Clearly, after peeling off one edge, what is left is again a brick of cheese. Hence, write a recursive algorithm for the robot to eat all the cheese!}%\\[-9mm]
+
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/g01.png}
@@ -864,14 +887,15 @@ Write a recursive algorithm for the robot to eat all the cheese and return home!
 \vspace{-4mm}
 \caption{Karel is eating cheese.}
 \label{fig:g01}
-\vspace{-1cm}
+%\vspace{-1.4cm}
 \end{figure}
-\newpage
 
+\newpage
 
 \subsection{Speleologist}
 
-{\em Karel stands at the entrance to a cave and wants to explore it. Write a recursive program for the robot to descend the staircase to the bottom, return back, and enter his home! The number of steps in the staircase is random.}
+{\em Karel stands at the entrance to a cave that he wants to explore. Write a program for the robot to descend the staircase to the bottom, pick up the gem, and return back up! Clearly, after descending one step the task remains the same, which is a good reason to use recursion. The number of steps in the staircase is random.}%\\[-9mm]
+
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/g02.png}
@@ -880,21 +904,21 @@ Write a recursive algorithm for the robot to eat all the cheese and return home!
 \caption{Karel became a speleologist.}
 \label{fig:g02}
 \end{figure}
-\vspace{-1cm}
+%\vspace{-1.2cm}
 
+\newpage
 
 
 \subsection{Homage to lemmings}
 
-{\em  Karel has many gems in his bag, and he needs to build a heap shown in Fig. \ref{fig:g03} before he can 
-enter his home. Use recursion.}
+{\em Karel has many gems in his bag, and he needs to build a triangular slope of gems that reaches to the Northeast corner of the maze. Clearly, after putting one layer, the task remains the same. Hence this is where recursion comes handy! }
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/g03.png}
 \end{center}
 \vspace{-4mm}
-\caption{Karel needs to build a heap of gems before he can get home.}
+\caption{Karel is building a triangular slope of gems.}
 \label{fig:g03}
 \vspace{-1cm}
 \end{figure}
@@ -903,10 +927,9 @@ enter his home. Use recursion.}
 
 \subsection{Diamond tree}
 
-{\em Karel stands under a diamond tree, with his home next to him on the the right. 
-The tree is random -- at any point it can have 
-a branch in the north-west or in the north-east direction (or in both). Write a recursive 
-algorithm for the robot to collect all gems from the tree and get home!  }
+{\em Karel stands under a diamond tree. The tree is random -- at any point it can have 
+a branch in the Northwest or in the Northeast direction (or in both). Write a recursive 
+algorithm for the robot to collect all gems!}
 
 \begin{figure}[!ht]
 \begin{center}
@@ -921,7 +944,7 @@ algorithm for the robot to collect all gems from the tree and get home!  }
 
 \newpage
 
-\section{Programming Mode 3 - Advanced Programs}
+\section{Programming Mode 3 - Challenge Problems}
 
 If the previous exercises have not been challenging enough, then here is something 
 for you. Enjoy!
@@ -933,7 +956,8 @@ for you. Enjoy!
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/i04.png}
+%\includegraphics[height=0.4\textwidth]{img/i04.png}
+\vspace{6cm}
 \end{center}
 \vspace{-4mm}
 \caption{The eight queens problem.}
@@ -944,16 +968,15 @@ for you. Enjoy!
 \subsection{Bubble sort}
 
 \noindent
-{\em Karel stands in front of 9 piles of gems. Each pile contains a random number of gems between 1 and 9. 
-Two or more piles can be equally large. Sort the piles in such a way that the smallest pile is on the left 
-and the largest on the right. Hint -- look up the BubbleSort algorithm on Wikipedia.}
+{\em Karel stands in front of 9 piles of gems. Each pile contains a random number of gems between 1 and 9. Two or more piles can be equally large. Use the BubbleSort algorithm to sort the piles in such a way that the smallest pile is on the left and the largest on the right. If you do not know the BubbleSort algorithm, look it up on Wikipedia.}
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/i05.png}
+%\includegraphics[height=0.4\textwidth]{img/i05.png}
+\vspace{6cm}
 \end{center}
 \vspace{-4mm}
-\caption{BubbleSort algorithm.}
+\caption{Sorting gems with the BubbleSort algorithm.}
 \label{fig:g13}
 \end{figure}
 
@@ -961,7 +984,7 @@ and the largest on the right. Hint -- look up the BubbleSort algorithm on Wikipe
 \subsection{Land surveyor}
 
 \noindent
-{\em Karel took a job as land surveyor and his first task is to measure the size of a fenced property. However, there is a big dog inside and Karel is scared of dogs. If he fails to measure the size of the property, he will lose his job. Hence, you need to write a program for the robot to calculate the size of the property without actually entering it. You can assume that the fence does not touch the boundary of the maze and that Karel is free to walk along the entire length of the fence. The property has a random shape and the robot is standing next to the fence.}
+{\em Karel took a job as land surveyor and his first task is to measure the area of a fenced property. However, there is a big dog inside. Hence, you need to write a program for the robot to calculate the area without actually entering it. You can assume that the fence does not touch the boundary of the maze and that Karel is free to walk along the entire length of the fence. The property has random shape and the robot is standing next to the fence.}
 
 \begin{figure}[!ht]
 \begin{center}
@@ -973,41 +996,19 @@ and the largest on the right. Hint -- look up the BubbleSort algorithm on Wikipe
 \end{figure}
 
 \newpage
-\subsection{Loopy loop}
+\subsection{Contraband}
 
 \noindent
-{\em Write a program for Karel to decide whether the walls in the maze form a closed loop or not. You can assume that the robot can freely walk along all walls and that they do not touch the maze's boundary.  }
+{\em Word got out that mobsters are hiding contraband in Karel's maze. If they do, it is hidden in unreachable places. Hence, write a program for the robot to traverse the entire maze and return the list of GPS pairs of all unreachable squares! The list should be empty if there are none.}
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/j03.png}
+%\includegraphics[height=0.4\textwidth]{img/j01b.png}
+\vspace{6cm}
 \end{center}
 \vspace{-4mm}
-\caption{Karel needs to decide whether the curve is open or closed.}
-\label{fig:j03}
+\caption{Karel needs to know if his maze contains unreachable spaces.}
+\label{fig:j01b}
 \end{figure}
 
-
-\newpage
-\subsection{Espionage}
-
-\noindent
-{\em Karel works for the Secret Service. The word is out that 
-enemy spies may be hiding in the maze. The rumor has it that they are 
-hiding in a place that is completely surrounded with walls and thus 
-not reachable from any direction. Hence, your task is to write a program 
-for the robot to traverse the entire maze and decide whether all positions 
-are reachable or not. Return a list containing all unreachable positions 
-(the list should be empty if there are none). This list will be used by 
-an assault team to eliminate all enemy forces.}
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/j02.png}
-\end{center}
-\vspace{-4mm}
-\caption{Karel is looking for hidden spies.}
-\label{fig:j02}
-\end{figure}
-\noindent
 
