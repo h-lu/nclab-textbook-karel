@@ -268,7 +268,7 @@ programming languages become incredibly easy to learn. \\[2mm]
 
 \noindent
 {\bf Why a New Textbook?}\\[2mm]
-Karel the Robot was created at the Stanford University by R. Pattis who also wrote 
+Karel the Robot was created at the Stanford University by R.E. Pattis who also wrote 
 the original textbook {\em Karel the Robot: A Gentle Introduction to the Art of Programming}
 in the 1980s. His Karel was aimed at university-level students and its systax was influenced
 by Pascal, a major "real" programming language of that era. We revived the language by using 
@@ -359,66 +359,71 @@ can send those at any time via email to {\tt pavel@femhub.com}.\\[2mm]
 \setcounter{page}{1}
 \section*{Foreword}
 
-This course provides an efficient introduction to modern algorithmic design and computer programming
-using the educational programming language {\em Karel the Robot}. The language was 
-created by Richard E. Pattis at Stanford University in his famous book {\em Karel the Robot: 
-A Gentle Introduction to the Art of Programming}. With Karel, learning feels more like playing. 
-You will not be exposed to technical difficulties of conventional programming languages, and 
-your learning will not be obscurred by math. As a result, you will understand quickly and easily 
-what computer programming really is about. After Karel, picking up additional programming 
-languages will be much easier.
+This course is based on the educational programming language {\em Karel the Robot}
+that was created by R.E. Pattis at Stanford University. Karel is {\em graphical} which makes 
+programming fun. It has {\em extremely simple syntax} which makes it easy to write code, 
+and it {\em does not contain math}. With Karel, students understand quickly that computer 
+programming is mostly about {\em thinking} and {\em solving problems}. After 
+developing these skills, learning other programming languages becomes much easier. 
 
-We have talked to many students who struggled with computer programming. The most frequent cause 
-for that was a mistake of their instructor who believed that "real programming skills 
-are best taught with a real programming language". Most often they were using C/C++ or Java. This, 
-however, is the same mistake as teaching someone how to ride a motorcycle without showing him or 
-her how to ride a bicycle first. There is nothing wrong with motorcycles of course! 
+The NCLab implementation of Karel provides a Manual Mode, three Programming Modes, and 
+Bonus Problems. In Manual Mode, kids as little as three years of age can guide the 
+robot by clicking on buttons. On the other hand, any K-12 student who sends us an original 
+solution to a Bonus Problem receives an NCLab T-Shirt. 
 
+\subsection*{How to Learn with Karel}
+
+The best way to learn with Karel is to solve assignments which are accessible through 
+Karel's File menu, using this textbook as a reference.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{img/fore-1a.png}
+\end{center}
+\vspace{-2mm}
+\caption{Accessing assignments through Karel's File menu.}
+\label{fig:f1a}
+\vspace{-4mm}
+\end{figure}
+\noindent
+These assignments come in the form of simple games with concrete goals to fulfill, 
+and certain limitations on time, maximum number of steps, etc. 
+Fig. \ref{fig:f1} shows sample assignment {\em Diamond Mine} in Manual Mode.
+\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.75\textwidth]{img/fore-1.png}
 \end{center}
 \vspace{-2mm}
-\caption{Sample game {\em Diamond Mine} in Manual mode.}
+\caption{Sample game {\em Diamond Mine} in Manual Mode.}
 \label{fig:f1}
 \vspace{-4mm}
 \end{figure}
 \noindent
-It is exactly the same thing with programming -- as a matter of fact, the "real" programming 
-languages have more complicated syntax, meaning that it takes a lot of work to express even the simplest ideas. 
-It also takes a lot of work to produce any graphics. As a result, students are often exposed
-to programming math formulas in one way or another. These things together create a frustration with 
-computer programming which is absolutely unnecessary.
+The five buttons available in Manual Mode include 
+\begin{itemize}
+\item {\tt go} (make one step forward), 
+\item {\tt left} (turn left), 
+\item {\tt right} (turn right), 
+\item {\tt put} (put a gem on the ground),
+\item {\tt get} (pick up a gem from the ground).
+\end{itemize} 
+In the Programming Modes, students solve assignments by typing code
+instead of clicking on buttons. For example, Programming Mode 1 comes 
+with the commands 
 
-In contrast to that, Karel the Robot is an outstanding programming language for beginners. The robot only knows a handful of 
-simple commands and has a few sensors to navigate through the maze. There is no mathematics whatsoever,
-and writing programs is as simple as "while not wall go". 
+\begin{itemize}
+\item {\tt go}, {\tt left}, {\tt right}, {\tt put}, {\tt get}
+\end{itemize} 
+whose functions correspond to the five buttons in Manual Mode, and 
 
-The course begins in Manual Mode where the robot can be guided via 
-clicking on five buttons {\em Go} (make one step forward), {\em Left} (turn left), {\em Right} 
-(turn right), {\em Put} (put a gem on the groud) and {\em Get} (pick up a gem from the ground). 
-In the next Programming Mode 1 a.k.a ``Bridge to Programming'' students keep solving 
-problems by typing the commands {\tt go}, {\tt left}, {\tt right}, {\tt put} and {\tt get} 
-instead of clicking on buttons. This Mode also contains the counting loop ({\tt repeat} command). 
-
-The need for higher functionality such as conditional loops, conditions, and custom commands 
-arises naturally as game goals become more complicated. 
-Students learn quickly that it is advantageous to break complex tasks into smaller 
-ones, which is one of the most important principle of computer 
-programming. The textbook is written by programming experts, and in addition to 
-advanced programming skills the students gain an overview of good and bad 
-programming habits.
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=0.75\textwidth]{img/fore-2.png}
-\end{center}
-\vspace{-2mm}
-\caption{Sample game {\em Speleologist} in Programming mode.}
-\label{fig:f2}
-\vspace{-4mm}
-\end{figure}
-\noindent
+\begin{itemize}
+\item {\tt repeat} (repeat one or more commands a given number of times).
+\end{itemize} 
+Programming Mode 2 brings sensors, conditions, conditional loop, and ability to define 
+custom commands. Programming Mode 3 moreover provides variables, GPS device, Python lists 
+to store the robot's path, advanced logical operations, and more. Complete overview 
+of functionality by Programming Mode can be found in Section \ref{sec:newfunc3} 
 
 
 \part{Meet Karel}
