@@ -208,6 +208,7 @@ functions. In the {\em File} menu:
       public database to your NCLab account. In the Search box that appears, enter 
       keywords that best match what you are interested in. For example, typing 
       "karel textbook" will find all textbook exercises.  
+\item {\em Assignments} allows you to access all assignments from this textbook. 
 \item {\em Publish to the web} will create a HTML address for your project. Such 
       a link can be included in any web page. 
 \end{itemize}
@@ -227,14 +228,14 @@ Karel has in his bag.
 
 Karel operates in six modes:
 \begin{itemize}
-\item {\em Manual Mode.} The robot is controlled using the mouse and five buttons Go, Get, Left, Right, and Put. 
+\item {\em Manual Mode.} The robot is controlled using the mouse and five buttons 
+      {\tt go}, {\tt get}, {\tt left}, {\tt right}, and {\tt put}. 
       Watch out and do not crash!
-\item {\em Programming Mode 1.} This mode serves 
-      as a bridge between a world where the robot is guided via clicking on buttons, and another 
-      world where he obeys written instructions. Programs are written using 
-      six commands {\tt go}, {\tt get}, {\tt left}, {\tt right}, {\tt put}, and {\tt repeat}. The
-      function of the former five corresponds exactly to the function of the buttons Go, Get, Left, 
-      Right, and Put in Manual Mode. The {\tt repeat} command will repeat a given number of times 
+\item {\em Programming Mode 1.} The purpose of this mode is to show that the robot 
+      can be guided via written commands that have the same meaning as the buttons 
+      in Manual Mode. Simple programs are written using 
+      six commands {\tt go}, {\tt get}, {\tt left}, {\tt right}, {\tt put}, and {\tt repeat}. 
+      The {\tt repeat} command will repeat a given number of times 
       any of the five basic commands, or their sequences, and it can also repeat other {\tt repeat} commands. 
 \item {\em Programming Mode 2.} This is where the actual programming begins. On top of the commands 
       from Programming Mode 1, programs can contain conditions, conditional loops, and custom commands.
@@ -252,35 +253,41 @@ Karel operates in six modes:
 
 \subsection{Objectives} 
 \begin{itemize}
-\item Learn to guide the robot by clicking on buttons whose function corresponds to elementary commands.
+\item Learn to guide the robot by clicking on buttons.
 \item Learn to work with spatial directions ``right'' and ``left'' relatively to the robot's orientation. 
 \item Learn to plan your path ahead of time, and think before making a move.
 \end{itemize}
 
 \subsection{Compass}
 
-Before we begin, let us review the four directions on the compass:
+Fig. \ref{fig:ori} shows the four directions on the compass
+(North, South, West, and East). These directions will be used
+to describe the position of the robot in the maze ("robot faces
+the North boundary of the maze"), position of objects relative 
+to where the robot stands ("there is a gem two steps East of 
+the robot") etc.
 \newpage
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.35\textwidth]{img/compass.png}
 \vspace{-0mm}
-%\caption{Karel's four possible orientations.}
-%\label{fig:ori}
+\caption{The four main directions on the compass.}
+\label{fig:ori}
 \end{center}
 \vspace{-1cm}
 \end{figure}
 
 \subsection{Control buttons}
 
-When launching Karel through the Programming icon, switch to Manual Mode using the corresponding 
-menu button. Then, five buttons Left, Right, Go, Get and Put will appear in the panel on the left,
-as shown in Fig. \ref{fig:buttons}.
+When launching Karel through the Programming icon on NCLab Desktop, 
+switch to Manual Mode using the corresponding 
+menu button. Five buttons {\tt left}, {\tt right}, {\tt go}, {\tt get} and {\tt put} will 
+appear in the left panel, as shown in Fig. \ref{fig:buttons}.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=6.2cm]{img/buttons-all.png}
+\includegraphics[width=8cm]{img/buttons-all.png}
 \vspace{-0mm}
 \caption{Karel's buttons in Manual Mode (robot facing East).}
 %\vspace{-1cm}
@@ -288,21 +295,19 @@ as shown in Fig. \ref{fig:buttons}.
 \end{center}
 \end{figure}
 \noindent
-The function of the buttons is self-explanatory -- pressing Left will turn the robot 90 degrees to the left,
-pressing Right will turn him 90 degrees to the right, and pressing Go will move him one step forward. 
-Upon pressing Put the robot will reach into his bag with gems, 
-take one, and put it on the ground where he stands. 
-An indicator showing how many gems are in the bag can be found in the upper right 
-corner of the window. Last, upon pressing 
-Get the robot will pick up a gem from the ground where he stands. If 
-one asks the robot to get a gem where there is none, he will complain.
+The function of the buttons is self-explanatory: Pressing {\tt left} will turn the robot 90 degrees to the left,
+pressing {\tt right} will turn him 90 degrees to the right, and pressing {\tt go} will move him one step forward.
+If he crashes into a wall, he will complain. Upon pressing {\tt put} the robot will reach into his bag and 
+put one gem on the ground. If his bag is empty, he will complain. An indicator showing how many gems are in 
+the bag can be found in the upper right corner of the window. Last, upon pressing {\tt get}, the robot will 
+pick up a gem from the ground. If there is no gem to pick up, he will complain.
 
 When the robot turns, the arrows on the buttons adjust automatically to his new 
 direction. This is illustrated in Fig. \ref{fig:buttons2}.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=6.2cm]{img/buttons-all-2.png}
+\includegraphics[width=8cm]{img/buttons-all-2.png}
 \vspace{-0mm}
 \caption{Karel's buttons in Manual Mode (robot facing West).}
 \label{fig:buttons2}
@@ -322,37 +327,36 @@ direction. This is illustrated in Fig. \ref{fig:buttons2}.
 \item Understand that {\em debugging} is an indivisible part of computer programming.
 \end{itemize}
 
-\subsection{Typing programs}
+\subsection{Typing commands}
 
-Programs for the robot are entered into a {\em code cell} located on the left.
+Commands are typed in a {\em code cell} that is located on the left.
 In Programming Mode 1, we can use the commands {\tt left}, {\tt right}, {\tt go}, {\tt get}, 
-{\tt put}, and {\tt repeat}.
-The function of the former five is the same as the function of the corresponding buttons 
-in Manual Mode. One or more commands form {\em computer program (computer code)}. Often 
-we just say {\em program} or {\em code}. There are two simple rules to remember:\\
+{\tt put}, and {\tt repeat}. 
+One or more commands form a {\em computer program (code)}. 
+There are two simple rules to remember:\\
 
 \begin{gbox}
 \begin{enumerate}
-\item Always type one command per line, it greatly adds to code readability.
-\item Indentation matters - do not enter any extra empty characters in front of commands. 
+\item Always type one command per line.
+\item Indentation matters - do not enter any extra empty characters in front or after commands. 
 \end{enumerate}
 \end{gbox}
 \vspace{6mm}
 
 \noindent
-Ignoring these rules would not necessarily make your program invalid, 
-but the code would be difficult to read. It is very important to write 
-a clean, well readable code. 
+Following these rules will make your code clean and well readable. 
 
 \subsection{Algorithm} \label{subsec:interm1}
 
-Karel always follows your commands {\em precisely}. No exceptions. Sometimes
-the robot will do something that you will not expect. In this case most likely your 
-{\em algorithm} was wrong. An {\em algorithm} is a sequence of 
-steps (operations) that the robot follows in order to fulfill his task. Algorithms 
-are written using normal human language, not in terms of computer code. Consider
-a maze shown in Fig. \ref{fig:algo-1} where Karel needs to pick up the gem and 
+Karel always follows your commands {\em exactly}. No exceptions. If the robot does something 
+unexpected, such as crashing into a wall, then most likely your 
+{\em algorithm} is wrong. By {\em algorithm} we mean a sequence of 
+logical steps that should solve the given task. Algorithms are written using 
+common human language, not in terms of computer code. For illustration, consider 
+a maze shown in Fig. \ref{fig:algo-1}. Karel's task is to pick up the gem and 
 return to his home square.
+
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -363,25 +367,23 @@ return to his home square.
 %\vspace{-1.5cm}
 \end{center}
 \end{figure}
+
 \noindent
-An algorithm to solve this task would be:
+This task can be solved using the following algorithm:
 
 \begin{verbatim}
 Make two steps forward
-Collect the gem and turn around
+Collect the gem
+Turn around
 Make three steps forward
 \end{verbatim}
+In the next paragraph, we will translate this algorithm into a {\em computer program}.
 
-\subsection{Program}
+\subsection{Computer program}
 
-{\em Computer program} or just {\em program} is created by translating an algorithm 
-to a particular programming language -- in our case to the Karel language. It is 
-extremely important to have a good algorithm. Writing a program based on a good
-algorithm is a routine. But if the algorithm is not good, the program will not 
-be good no matter what we do. 
-
-The above example is very simple indeed, but we will have a chance to work with more complicated 
-algorithms later. One possible program corresponding to that algoritm is:\\
+Computer program is obtained by translating an algorithm 
+to a particular programming language -- in our case to the Karel language. 
+One possible program corresponding to the above algoritm is:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -417,17 +419,19 @@ program. For example, the above algorithm can be also translated to\\
 
 \subsection{Logical and syntax errors}
 
-Mistakes in algorithms are called {\em logical errors}. Let's return to 
+Mistakes happen. In algorithms, they are called {\em logical errors}. Let's return to 
 the setting shown in Fig. \ref{fig:algo-1} and consider the algorithm
 
 \begin{verbatim}
 Make three steps forward
-Collect the gem and turn around
+Collect the gem
+Turn around
 Make three steps forward
 \end{verbatim}
-This is a logical error -- the algorithm makes the robot crash into the wall.
+This would make the robot crash! Here we made a mistake in the planning
+-- the algorithm contains a {\em logical error}.
 
-In contrast to this, mistakes such as mis-spelling a command, writing "1O" instead of "10", or forgetting 
+Mistakes in programs, such as misspelling a command, writing "1O" instead of "10", or forgetting 
 indentation are related to {\em syntax} and they are called {\em syntax errors}. Find
 three syntax errors in the following program!\\
 
@@ -454,8 +458,8 @@ right away. \\
 
 \begin{gbox}
 \begin{center}
-Of logical and syntax errors, the former are much harder to find.\\
-Always make sure to design a good algorithm before you start coding!
+Of logical and syntax errors, the former are harder to find. Therefore, 
+always make sure to design a good algorithm and to think it through, before you start coding.
 \end{center}
 \end{gbox}
 \vspace{4mm}
@@ -463,7 +467,7 @@ Always make sure to design a good algorithm before you start coding!
 \noindent
 When our program contains a syntax error,
 the robot outputs an {\em error message} and does nothing.
-If the algorithm contains a logical error, then multiple 
+When the algorithm contains a logical error, then various 
 things may happen: The robot may execute the program 
 without fulfilling the goals. Or, he may do something 
 that will trigger and error message and stop program 
@@ -472,20 +476,20 @@ execution. This includes:
 \begin{itemize}
 \item Crashing into a wall.
 \item Attempting to collect a gem where there is none.
-\item Attempting to put a gem on the ground while his bag is empty.
+\item Attempting to put a gem on the ground while the robot's bag is empty.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Counting Loop} \label{sec:repeat}
 
-In Section 4 we learned to command the robot using written words rather than mouse 
-clicks, but it hardly could be called programming. The first programming concept -- 
-the {\em counting loop} -- awaits us in this section. Counting loops 
-are present in all procedural programming languages and they
-allow us to repeat some action a given number of times (such 
-as three times, ten times). In Karel, counting loops are written using the 
-{\tt repeat} command. Some other languages use the keyword {\tt for}.  
+In Section 4 we learned to guide the robot using written commands rather than 
+clicking on buttons, but this hardly could have been called programming. 
+The first programming concept -- {\em counting loop} -- awaits us in this 
+section. Counting loops are present in all procedural programming languages 
+and they allow us to repeat some action a given number of times. In Karel, 
+counting loops are written using the command {\tt repeat}. Some other languages 
+use different commands, but the idea is always the same.
 
 \subsection{Objectives} 
 
@@ -543,47 +547,26 @@ In principle we could type\\
 \vspace{6mm}
 
 \noindent
-and this program would get the job done. But that program would not get you hired as a computer
-programmer. The same can be achieved by telling Karel to {\tt repeat} the {\tt go} 
+But such program would not get you hired as a computer programmer! 
+
+\noindent
+The same goal can be accomplished much more elegantly, by telling Karel to {\tt repeat} the {\tt go} 
 command {\tt 10} times, get the gem, turn back, and  {\tt repeat} the {\tt go} 
 command another {\tt 11} times:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{\PYZsh{} Walk to the gem:}
 \PY{k}{repeat} 10
     \PY{n+nf}{go}
-\PY{c}{\PYZsh{} Pick it up:}
 \PY{n+nf}{get}
-\PY{c}{\PYZsh{} Turn back:}
 \PY{k}{repeat} 2
     \PY{n+nf}{left}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{\PYZsh{} Walk home:}
 \PY{k}{repeat} 11
     \PY{n+nf}{go}
 \end{Verbatim}
 \end{bbox}
-\vspace{6mm}
 
-\noindent
-Notice the comments -- all text that follows the hash symbol '{\tt \#}' 
-is ignored by the interpreter till the end of line. \\
-
-\begin{gbox}
-\begin{center}
-Commenting your code is a very good habit. It helps others to understand 
-your code, and it also helps you when you return to your own code after some time.
-\end{center}
-\end{gbox}
-
-\subsection{Body of the loop and indentation}
+\subsection{Body of loop and indentation}
 
 Note that in the last program, commands to be repeated (the {\em body of the loop}) 
 are indented. In this case, each loop's body is formed by a single command, but if
@@ -591,9 +574,8 @@ there were more of them, all of them would be indented. In Karel, you can choose
 a 2-indent and a 4-indent. The former yields more compact code with not-so-long lines, 
 but the latter is easier to read. 
 
-Having the indentation right is extremely important. If you make 
-a mistake here, you can easily damage your robot! 
-Assume the maze shown in Fig. \ref{fig:repeat-11}.
+Mistakes in indentation typically have serious consequences. 
+For illustration, assume the maze shown in Fig. \ref{fig:repeat-11}.
 Karel's task is to walk around the block and stop in the 
 upper left corner, facing South. 
 
@@ -601,9 +583,9 @@ upper left corner, facing South.
 \begin{center}
 \includegraphics[width=3.8cm]{img/repeat-11.png}
 \vspace{-0mm}
-\caption{Karel needs to go around a block.}
+\caption{Karel walks around the block.}
 \label{fig:repeat-11}
-%\vspace{-1cm}
+\vspace{-0.6cm}
 \end{center}
 \end{figure}
 \noindent
@@ -620,21 +602,22 @@ Here is the program that will do it:\\
 \vspace{6mm}
 
 \noindent
-After this program is executed, the robot's position is 
-as shown in Fig. \ref{fig:repeat-12}.
+The robot's position after executing the program is shown in Fig. \ref{fig:repeat-12}.
+\vspace{-2mm}
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=3.8cm]{img/repeat-12.png}
 \vspace{-0mm}
-\caption{Karel is where he is supposed to be.}
+\caption{Karel's position after executing the program.}
 \label{fig:repeat-12}
-%\vspace{-1cm}
+\vspace{-1cm}
 \end{center}
 \end{figure}
+\newpage
 \noindent
 However, let's say that the last command of the loop's body is
-unindented by mistake:
+unindented by mistake:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -647,19 +630,20 @@ unindented by mistake:
 \vspace{6mm}
 
 \noindent
-Then the robot will make just two steps before crashing right into the wall:
+Now the robot is told to make six steps forward and then turn to the left --
+which makes him crash right into the wall!
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=3.8cm]{img/repeat-13.png}
 \vspace{-0mm}
-\caption{Karel just crashed!}
+\caption{Mistake in indentation caused the robot to crash.}
 \label{fig:repeat-13}
 %\vspace{-1cm}
 \end{center}
 \end{figure}
 \noindent
-There will be an error message telling where the problem occurred:\\
+There is an error message telling where in the code the problem occurred:\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -672,12 +656,13 @@ Line 2:go
 
 \subsection{Two nested {\tt repeat} loops}
 
-In the last two programs, the {\tt go} command was written twice. This is 
-not that bad since using the {\tt repeat} command and writing one command 
-per line, we would also need two lines. 
+In the last two programs, the {\tt go} command was written on two
+consecutive lines. This is 
+OK since with the {\tt repeat} command we would also need two lines. 
 But consider the situation shown in Fig. \ref{fig:repeat-14} and imagine
 that Karel has to walk around the block now, returning to his original 
 position.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -689,8 +674,9 @@ position.
 \end{center}
 \end{figure}
 \noindent
-Writing the {\tt go} command inside the {\tt repeat} loop five times would not be too nice.
-Instead, the following code does the job elegantly:\\
+Writing the {\tt go} command inside the {\tt repeat} loop on five consecutive lines
+would not be OK -- the code would be much longer than necessary. The following 
+code does the job elegantly:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -705,16 +691,16 @@ Instead, the following code does the job elegantly:\\
 \noindent
 When a loop is used within another loop's body, we say that the loops are {\em nested}.
 Notice that the same indentation scheme applies to each of the two loops. The {\tt go}
-command that is inside of the internal loop, is indented by eight empty characters, while 
-the {\tt left} command which does not belong to the internal loop anymore is only indented 
-by four.  
+command that is inside the internal loop, is indented by additional four empty characters, while 
+the {\tt left} command which does not belong to the internal loop is only indented 
+by four empty characters.  
 
 \subsection{Three nested {\tt repeat} loops} \label{subsec:3rep}
 
-Let's look at one last example in this section. Karel stands on the intersection of 
+Let's look at one last example. Now, Karel stands at the intersection of 
 two streets that separate four blocks, as shown in Fig. \ref{fig:repeat-15}. His 
-task is to walk around each block, always returning to his initial position before 
-starting a new block. 
+task is to walk around each block, always returning to his initial position.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -722,11 +708,11 @@ starting a new block.
 \vspace{-0mm}
 \caption{Standing on an intersection.}
 \label{fig:repeat-15}
-%\vspace{-1cm}
+\vspace{-0.6cm}
 \end{center}
 \end{figure}
 \noindent
-Here is the program that will do it:\\
+This can be done using the following program:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -741,8 +727,7 @@ Here is the program that will do it:\\
 \vspace{6mm}
 
 \noindent
-This program features three nested {\tt repeat} loops. Take the time to 
-reconstruct this example in Karel and run the program -- it is well worth the effort!
+Take the time to build this maze and type this program in Karel, it is worth the effort!
 
 \section{Working with Code and HTML Cells} \label{sec:editmenu}
 
