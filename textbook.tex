@@ -902,14 +902,14 @@ Fig. \ref{fig:if-112}.
 
 \begin{gbox}
 \begin{center}
-Note that commands forming the body of the {\tt if} and {\tt else} branches are indented.
-This is done for the same reason as in the {\tt repeat} loop. 
+Note that all commands that form the body of the {\tt if} and {\tt else} branches are indented.
+The indentation serves the same purpose as in the {\tt repeat} loop. 
 \end{center}
 \end{gbox}
 
 \subsection{Using the keyword {\tt not}}
 
-Karel can also use the keyword {\tt not} (negation). For illustration, the last 
+Karel can utilize the keyword {\tt not} (negation) in conditions. For illustration, the last 
 program can be rewritten as follows, without changing its function:\\
 
 \begin{bbox}
@@ -925,21 +925,10 @@ program can be rewritten as follows, without changing its function:\\
 
 \subsection{Using the {\tt gem} sensor}
 
-The {\tt gem} sensor allows Karel to check whether he stands at a gem. 
-This is the only way for the robot to pick up a gem: His hands are 
-too short to reach into another square. And, he cannot "see" gems which 
-lie in other squares -- simply because he does not have "eyes". Returning to 
-the situation depicted in Fig. \ref{fig:if-111}, the robot does not have 
-a chance to know that a gem lies one step ahead. 
-
-Sometimes, we tend to make 
-a mistake of exploring the maze with our own eyes instead of using the 
-robot's sensors. Use your empathy skills and feel youself into the robot. 
-He cannot hear, because he does not have a sensor for that. He does not 
-have a sense of smell either. Let's always view the 
-problem at hand from the robot's perspective. If you can do this, your 
-programming ability will expand tremendously.
-Consider the situation shown in Fig. \ref{fig:if-111} again,
+The {\tt gem} sensor allows Karel to detect a gem on the ground. The gem 
+must lie in the same square -- the robot cannot see what is one or more 
+steps ahead. Consider the situation shown in Fig. \ref{fig:if-111} 
+again:
 
 \begin{figure}[!ht]
 \begin{center}
@@ -995,7 +984,7 @@ at least one gem. Imagine that Karel's block has four houses with pavements
 around them, as shown in Fig. \ref{fig:empty-111}. After
 the winter the pavements are damaged and some tiles (gems) are missing. Karel 
 has an unknown number of tiles in his bag. Write a program for him to 
-repair the pavements. Important: Your program must not throw an error if Karel 
+repair the pavements. Your program should not throw an error if Karel 
 runs out of gems!\\[-7mm]
 
 
@@ -1051,8 +1040,8 @@ of each {\tt go} command:\\
 \vspace{6mm}
 
 \noindent
-Is this program OK? Almost, but not quite. If the number of
-gems in Karel's bag is less that the number of missing tiles
+Is this program OK? Not yet! If the number of
+gems in Karel's bag is less than the number of missing tiles
 in the pavement, the program will stop with an error message. 
 So, we need to check the {\tt empty} sensor before each {\tt put}
 command. The final program has the form:\\
@@ -1073,27 +1062,28 @@ command. The final program has the form:\\
 \vspace{6mm}
 
 \noindent
-Nice work! Fig. \ref{fig:empty-112} shows the pavement after the program 
-is execured. Karel started with 15 gems in the bag (gems can be added to 
-the robot's bag in Designer).
+Good job! Fig. \ref{fig:empty-112} shows the pavement after the program 
+is execured. Before running the program, we inserted 15 gems into Karel's
+bag in Designer.
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=9.4cm]{img/empty-112.png}
 \vspace{-0mm}
-\caption{After running the program, the pavement is flawless again!}
+\caption{After running the program, the pavement is repaired!}
 \label{fig:empty-112}
 %\vspace{-1cm}
 \end{center}
 \end{figure}
 %\newpage
 \noindent
-As an exercise, run this program with just 10 gems in the robot's bag!
+Try to return to the maze from Fig. \ref{fig:empty-111} and run this program with 
+just 10 gems in the robot's bag! What is supposed to happen?
 \newpage
 
 \subsection{Gambling}
 
-Returning for a moment to Fig. \ref{fig:if-111b},
+Let us return to Fig. \ref{fig:if-111b}:
 
 
 \begin{figure}[!ht]
@@ -1129,18 +1119,20 @@ Line 1: get
 \vspace{6mm}
 
 \noindent
-We say that the code {\em crashed}, even though Karel did not crash into a wall.\\
+If the program stops with an error message, we say that it {\em crashed} (even 
+though Karel did not crash).\\
 
 \begin{gbox}
 \begin{center}
-We must not write codes that can crash. 
+Do not take chances. Try to foresee and avoid situations\\ 
+when your program might crash. 
 \end{center}
 \end{gbox}
 \vspace{6mm}
 
 \noindent
 The error could have been avoided easily 
-by using the {\tt gem} sensor before the {\tt get} command:\\
+by using the {\tt gem} sensor before trying to pick up the gem:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1151,21 +1143,9 @@ by using the {\tt gem} sensor before the {\tt get} command:\\
 \vspace{6mm}
 
 \noindent
-Also the commands {\tt go} and {\tt put} can potentially lead to 
-an error. Unless we are really sure that this will not be the case, 
-we can always check the corresponding sensor before executing these 
-commands. For the {\tt go} command this would be\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{if} not \PY{n+nb+bp}{wall}
-    \PY{n+nf}{go}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-and for the {\tt put} command\\
+Also the command {\tt put} can cause an error when the robot's
+bag is empty. It is a good practice to always combine the {\tt put} 
+command with using the {\tt empty} sensor:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1176,13 +1156,13 @@ and for the {\tt put} command\\
 \vspace{6mm}
 
 \noindent
-So, keep the following in mind:\\
+Keep the following in mind:\\
 
 \begin{gbox}
 \begin{center}
-Do not gamble. If you are not 100 \% sure, check a sensor prior to using 
-commands {\tt go}, {\tt get} and {\tt put}. Checking sensors is quick, 
-it does not make your program slower.
+It is always a good idea to check the corresponding sensor prior to using 
+commands {\tt go}, {\tt get}, or {\tt put}. Checking a sensor does not make 
+your program slower.
 \end{center}
 \end{gbox}
 \vspace{6mm}
@@ -1190,12 +1170,12 @@ it does not make your program slower.
 
 \subsection{The {\tt north} and {\tt home} sensors}
 
-By now you understand the concept of sensors very well, so there is no need to 
-spend much more time on the remaining two. Let us just mention that the {\tt north} 
+The {\tt north} 
 sensor can be used to make the robot face any given direction. For this,
 we always must turn him to face North first, because this is the only 
 direction he can verify. From there, one {\tt left} command will turn him 
-West, etc. The {\tt home} sensor helps the robot to make sure that he reached his home. 
+West, etc. The {\tt home} sensor helps the robot to make sure that he 
+has reached his home. 
 
 
 
@@ -1203,17 +1183,15 @@ West, etc. The {\tt home} sensor helps the robot to make sure that he reached hi
 
 \section{Conditional Loop} \label{sec:whilek}
 
-The {\em conditional loop} is a major concept that is used in all procedural 
+The {\em conditional loop} is another important concept that is present in all procedural 
 programming languages. It allows us to repeat some action without knowing 
 in advance how many repetitions will be needed. This can be the case, for example, 
-when Karel needs to walk straight until he reaches a wall. Recall that he cannot see a wall
-that is not right in front of him. Another example is when the robot needs to turn to face 
-North. Recall that he can't know which direction he is facing -- he can only check 
-whether he faces North or not.
+when Karel needs to walk straight to the closest wall. Remember that he only can detect 
+a wall that is immediately in front of him, not a wall that is one or more steps ahead. 
+
 In most languages (including Karel), the conditional loop is represented via the 
-keyword {\tt while}. In others, one can find 
-constructs such as {\tt do - while}, {\tt do - until},
-{\tt repeat - until} etc.
+keyword {\tt while}. In others, one can find other keywords such as {\tt do - while}, 
+{\tt do - until}, {\tt repeat - until} etc.
 
 \subsection{Objectives} 
  
@@ -1225,22 +1203,23 @@ constructs such as {\tt do - while}, {\tt do - until},
 
 \subsection{The {\tt while} command}
 
-Consider for a moment the situation shown in Fig. \ref{fig:while-111}. Karel 
-stands at a random position in the maze and he knows that there is one gem 
-somewhere at the exterior wall, but he does not 
-know the exact location. Let's write a program for the robot to go get the gem!
+Consider the situation shown in Fig. \ref{fig:while-111}. Karel 
+stands at a random position in a maze that contains no walls.
+There only is one gem, located at an unknown position somewhere along 
+the exterior wall. Let us write a program for the robot to find and collect 
+the gem!
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=14cm]{img/while-111.png}
 \vspace{-0mm}
-\caption{There is one gem in the maze, located at the exterior wall.}
+\caption{There only is one gem, located somewhere at the exterior wall.}
 \label{fig:while-111}
 \vspace{-6mm}
 \end{center}
 \end{figure}
 \noindent
-The program would be:\\
+One such program is:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1272,23 +1251,23 @@ twice.
 \end{figure}
 \noindent
 
-\subsection{Think like the robot}
-Next let us solve the problem shown in Fig. \ref{fig:while-114}, where
-Karel knows that his home is straight ahead of him, there are no walls on the way, 
-and there are gems that he needs to collect. 
+\subsection{Think like a robot!}
+Next let us solve the problem shown in Fig. \ref{fig:while-114}. Karel knows that 
+his home is straight ahead, that there are no walls to crash into,  
+and that there are gems on the ground that he needs to collect. 
 \newpage
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=14cm]{img/while-114.png}
 \vspace{-0mm}
-\caption{Karel needs to get home and collect all gems on the way.}
+\caption{Karel needs to walk home and collect all gems on the way.}
 \label{fig:while-114}
 \vspace{-6mm}
 \end{center}
 \end{figure}
 \noindent
-First let us show a bad program to do this:\\
+This could be done using the following program:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1320,19 +1299,23 @@ First let us show a bad program to do this:\\
 \vspace{6mm}
 
 \noindent
-The program works, so what is the problem? The problem is that while writing the program, 
-the author was thinking like the observer and not 
-like the robot. The observer knows everything about the maze -- the exact position
-of all gems as well as how many gems are in each pile. However, the robot does not know 
-any of that. As a result, the program is very fragile -- it will crash as soon as
-the position of one of the gems is changed, or if the number in one of the piles 
-will change. That is not good. 
+Clearly, the author was thinking like an observer who knows everything about the maze, 
+including the exact positions of all gems. Incorporating this knowledge into the program 
+was wrong, since it was not part of the task description. As a result, the above program 
+is extremely rigid -- it will only work for this particular maze. A much better approach 
+is to think like the robot:\\
 
-A much better approach to writing the program is to 
-think like the robot. This means, cover the maze so that you do not see it, and 
-write the program knowing only what the robot knows -- that the
-home is straight ahead, that there are no walls on the way, and that there are 
-gems that need to be collected. Then the program is completely different:\\
+\begin{gbox}
+\begin{center}
+Cover the maze (the robot cannot see it either). Keep in mind only two things:\\
+the task at hand, and the robot's abilities. 
+\end{center}
+\end{gbox}
+\vspace{6mm}
+
+\noindent
+This is the way to become a great thinker and programmer. 
+It leads to a completely different program:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1345,19 +1328,15 @@ gems that need to be collected. Then the program is completely different:\\
 \vspace{6mm}
 
 \noindent
-Notice that the second {\tt while} loop also takes care of the situation 
-when there is no gem where the robot is. No need to use an extra {\tt if}
-condition to check that. 
-
-As a bonus for thinking like the robot, our program is now universal. It will work
-for any maze where the home is straight ahead of the robot with no walls and 
-some gems on the way. One such maze is shown in Fig. \ref{fig:while-115}.
+The program is not only much shorter and more elegant, but also more universal. 
+It will work for any maze where the home is straight ahead of the robot, with no walls 
+between the robot and his home. One such maze is shown in Fig. \ref{fig:while-115}.
 \newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=14cm]{img/while-115.png}
 \vspace{-0mm}
-\caption{The program now works for many different mazes!}
+\caption{The latter program now works for many different mazes.}
 \label{fig:while-115}
 \vspace{-6mm}
 \end{center}
@@ -1369,22 +1348,16 @@ some gems on the way. One such maze is shown in Fig. \ref{fig:while-115}.
 
 \section{Custom Commands} \label{sec:newcom}
 
-When solving a complicated task, it is a good idea to always check whether 
-it contains simpler problems that could be solved first. Usually there are one 
-or more of them. Once these smaller problems are solved, and custom commands 
-({\em subprograms}) are created for them, then the original difficult task 
-is not that difficult anymore. Custom commands can represent multiple commands 
-or even a longer program. Computer code forming a custom command is
-easy to reuse in various parts of our program. When a change to the custom 
-command is needed, it is done only in its definition, and the change then
-propagates automatically to all occurrences of the command in our program.
+When solving a more complex task, it is a good idea to always check whether 
+it contains simpler problems that could be solved first. Once these smaller 
+problems are solved, and custom commands ({\em subprograms}) are created for 
+them, then the original task does not appear that complex anymore. 
 
 \subsection{Objectives} 
  
 \begin{itemize}
-\item Learn that splitting a big task into smaller ones will simplify its solution. 
-\item Learn that creating new commands brings more clarity into your program.
-\item Learn that repeating the same code in various parts of our program is a bad habit. 
+\item Learn to split complex tasks into smaller ones. 
+\item Learn that creating new commands makes programs simpler.
 \end{itemize}
 
 
@@ -1392,8 +1365,7 @@ propagates automatically to all occurrences of the command in our program.
 
 New commands are defined using the reserved word 
 {\tt def}. For example, in a program where the robot needs to turn back
-many times, it is a good idea to define a new command {\tt turnback}
-as follows:\\
+in various situations, it is a good idea to define a new command {\tt turnback}:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1405,8 +1377,12 @@ as follows:\\
 \vspace{6mm}
 
 \noindent
-Note the indent -- the body of a new command needs to be indented 
-analogously to the body of loops and conditions.
+Note that the body of a new command needs to be indented 
+analogously to the body of loops and conditions. \\
+
+\noindent
+The following paragraph illustrates how more complex tasks can be 
+split into smaller ones, and how custom commands can be used. .
 
 \subsection{Arcade game}
 
@@ -1418,15 +1394,15 @@ the robot stands somewhere in the first floor.
 The example can be downloaded from NCLab's public database, its 
 name is "Arcade game".
 
-Clearly, this problem is a bit more complicated than the problems that we 
+Clearly, this problem is more complex than the problems that we 
 solved before. The way to solve it is to first 
 look for tasks that the robot will be doing in each floor. For sure, he will
 need to turn around from time to time, so let's start with introducing 
-the {\tt turnaround} command that we know from before:\\
+the {\tt turnback} command that we know from before:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{\PYZsh{} New command to turn around:}
+\PY{c}{\PYZsh{} New command to turn back:}
 \PY{k}{def} turnback
     \PY{k}{repeat} 2
         \PY{n+nf}{left}
@@ -1491,7 +1467,7 @@ the command {\tt sweep}. Let us call this new command {\tt gowest}\\
 \vspace{6mm}
 
 \noindent
-Almost done! The last new command we need is to get to the next 
+Almost there! The last new command we need is to get to the next 
 floor. Let us call it {\tt moveup}:\\
 
 \begin{bbox}
@@ -1533,7 +1509,7 @@ define a new command {\tt arcade}:\\
 \vspace{6mm}
 
 \noindent
-The main function is then called as follows:\\
+The main program includes just the command {\tt arcade}:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1544,54 +1520,17 @@ arcade
 \vspace{6mm}
 
 \noindent
-Fig. \ref{fig:newcomm-112} shows the arcade after the program
-has finished:
+Fig. \ref{fig:newcomm-112} shows the arcade after the program has finished:
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=14cm]{img/newcomm-112.png}
 \vspace{-0mm}
-\caption{Arcade after program has finished.}
+\caption{Arcade after our program has finished.}
 \label{fig:newcomm-112}
 \vspace{-6mm}
 \end{center}
 \end{figure}
-\noindent
-
-\subsection{Never replicate computer code}
-
-Your Karel programs will probably not have thousands of lines, 
-and in shorter programs copying and pasting of the same code 
-will not cause much harm. Nevertheless, even now we should 
-understand why this is an extremely bad programming practice
-that should be avoided. 
-
-A new command should be defined whenever it becomes clear that the same 
-action is repeated in the algorithm multiple times. When we start writing a program and then realize that the same
-code repeats itself at various places, then probably we did not do a good job 
-designing the algorithm.
-
-Sometimes it might be tempting to just replicate the same code several 
-times in your program, because it does the same thing. Do not do this.
-Sooner or later, you will need to adjust something in the block of 
-code that you copied, and you will forget to make the change in all
-occurences of the code. 
-
-Then your code will start acting strange and you will not know why.
-It will sometimes work and sometimes not. You will spend lots of time 
-looking for mistakes. You will find some of them but not all, and your 
-program will eventually become unreliable. Later, you will find that 
-the only solution is to throw the program away and rewrite it from scratch.\\
-
-\begin{gbox}
-\begin{center}
-Avoid code repetition as well as very long blocks of code. Define new commands whenever 
-appropriate. Keep the code well commented. This is the only way to keep your code 
-reliable, correct, and healthy.  
-\end{center}
-\end{gbox}
-\vspace{4mm}
-
 \noindent
 
 
@@ -1600,7 +1539,7 @@ reliable, correct, and healthy.
 \section{Variables} \label{sec:var}
 
 In this Section we are entering exciting Programming Mode 3 where Karel grows up and leaves the 
-home of his parents to experience life on his own. Therefore, his home will not be 
+home of his parents to experience life on his own. Therefore, his home square will not be 
 present in the maze anymore. There are additional changes
 that reflect Karel's growing up -- there is a GPS 
 device that he can use to determine his position in the maze, he can print messages, 
@@ -1613,10 +1552,9 @@ in Section \ref{sec:newfunc3}.
 \subsection[\ \ Objectives]{Objectives} 
  
 \begin{itemize}
-\item Learn to make a random decision.
 \item Understand the concept of variables.
 \item Learn to work with numerical and logical variables and text strings.
-\item Learn to use functions that return values. 
+\item Learn to define and use functions that return values. 
 \item Understand that variables defined inside functions are local. 
 \end{itemize}
 
