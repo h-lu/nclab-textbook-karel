@@ -2119,30 +2119,31 @@ at {\tt http://femhub.com/textbook-python}.
 
 \section{Lists}
 
-In this Section we introduce the concept of a {\em list}. 
-The syntax and philosophy is the same as in the Python programming 
-language, so all you learn here is directly usable in Python.
-The Python language provides additional functionality for
-working with lists which is not covered in Karel.
-
 \subsection[\ \ Objectives]{Objectives} 
  
 \begin{itemize}
 \item Understand the concept of a list.
-\item Learn to create empty lists, add items, and delete items.
-\item Learn to parse lists and work with indices.
+\item Learn basic operations with lists.
+\item Learn to work with indices.
 \end{itemize}
 Lists are very useful data structures that can be used to store multiple 
-integer values, logical values, or text strings at the same time. 
+integer values, GPS coordinates, logical values, and/or text strings at the same time. 
 Values of different types can be combined and lists can even contain other lists.
+For example, a list can store the robot's path, positions of all gems in the maze, 
+positions and shapes of obstacles that the robot encounters, and much more.
 Objects in a list are ordered and they can be added to the end of a list, 
-accessed by their index, and deleted from any position of the list. Let us 
-illustrate this functionality on examples.
+accessed by their index, and deleted from any position of the list. 
+
+\subsection[\ \ Compatibility with Python]{Compatibility with Python} 
+
+Karel lists are the same as lists in the Python programming language, so all you learn here 
+is directly transferable to Python. The Python language provides additional, more advanced 
+functionality for lists which is not present in Karel.
 
 \subsection[\ \ Creating a list]{Creating a list}
 
 \noindent
-An empty list {\tt U} is created via \\
+We use square brackets when creating lists. An empty list {\tt U} is created as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2162,7 +2163,7 @@ V = [1, 2, 3, 4, 5]
 \vspace{6mm}
 
 \noindent
-One can use variables when creating a list:\\
+We can use variables when creating a list:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2174,7 +2175,7 @@ W = [0, 50, c]
 \vspace{6mm}
 
 \noindent
-whose output is \\
+The output of this code is \\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2204,7 +2205,7 @@ Y = [1, \PY{s+1}{"Hello"}, 2, [1, 2, 3]]
 \vspace{6mm}
 
 \noindent
-One can print a list as expected:\\
+We can print a list:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2214,7 +2215,7 @@ One can print a list as expected:\\
 \vspace{6mm}
 
 \noindent
-Output:\\
+The output of this code is:\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2223,14 +2224,14 @@ This is the list Y: [1, \PY{s+1}{"Hello"}, 2, [1, 2, 3]]
 \end{ybox}
 \vspace{6mm}
 
-\subsection[\ \ Accessing list items by their index]{Accessing list items by their index}
+\subsection[\ \ Accessing list items by their indices]{Accessing list items by their indices}
 
 \noindent
-Any list item can be accessed and either printed, assigned 
-to a variable, or used in an operation, via its index. Indices 
-always start from zero. In other words, {\tt L[0]} is the 
-first item in the list {\tt L}, {\tt L[1]} is the second one, etc. 
-Working with indices can be illustrated using a simple code\\
+List items can be accessed and either printed, assigned 
+to other variables, or used in some other way, via their indices. 
+Indices always start from zero. In other words, {\tt L[0]} is the 
+first item in the list {\tt L}, {\tt L[1]} is the second item, etc. 
+Working with indices can be illustrated using the following simple code\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2254,7 +2255,6 @@ Third item: 16
 Fourth item: 20
 \end{Verbatim}
 \end{ybox}
-\vspace{6mm}
 
 \subsection[\ \ Appending items to a list]{Appending items to a list}
 
@@ -2437,13 +2437,17 @@ i = 0
 \end{bbox}
 \vspace{6mm}
 
+\noindent
+Note: This is slightly different from how lists are parsed in Python. 
+Soon it will be possible to use the Python way in Karel. Implementation is under way.
+
 \subsection[\ \ Storing the robot's path in a list]{Storing the robot's path in a list}
 
 \noindent
-Lists can be used to store the robot's path. The following 
-is a simple program that only tells the robot to go straight to the 
-nearest wall (this part does not really matter) and store the GPS
-coordinates in a list {\tt L}:\\
+The following 
+sample program tells the robot to walk straight to the 
+nearest wall and store his path in the form of {\tt [gpsx, gpsy]}
+pairs in a list {\tt L}:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2458,10 +2462,8 @@ L.append([gpsx, gpsy])
 \vspace{6mm}
 
 \noindent
-In fact, each time we are appending a list consisting of the horizontal and 
-vertical GPS coordinates -- there is no other way to represent two numbers 
-in one variable unless the variable is a list. When the robot's initial position 
-is as shown in Fig. \ref{fig:list-1},
+When the robot's initial position is as shown in Fig. 
+\ref{fig:list-1},
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2482,9 +2484,15 @@ Path: [[11, 6], [10, 6], [9, 6], [8, 6], [7, 6], [6, 6],
 [5, 6]]
 \end{Verbatim}
 \end{ybox}
-\vspace{6mm}
+
+\subsection[\ \ Storing positions of gems in a list]{Storing positions of gems in a list}
 
 \noindent
+The following 
+sample program tells the robot to... UNDER CONSTRUCTION
+
+\subsection[\ \ Double indices]{Double indices}
+
 To keep Karel's language simple, we do not allow double indices. Nevertheless
 there is a simple way to get to the items of lists that are contained in other lists:\\
 
