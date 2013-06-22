@@ -1543,11 +1543,10 @@ home of his parents to experience life on his own. Therefore, his home square wi
 present in the maze anymore. There are additional changes
 that reflect Karel's growing up -- there is a GPS 
 device that he can use to determine his position in the maze, he can print messages, 
-work with variables and lists, employ functions that return values, use more complex 
-logical operations, make random 
-decisions and more. Do not forget to switch to 
-Programming Mode 3. A compact overview of new functionality in Programming Mode 3 can be found 
-in Section \ref{sec:newfunc3}.
+work with variables and lists, employ functions that return values, use complex 
+logical operations, make random decisions, and more. Do not forget to switch to 
+Programming Mode 3 in the menu. A compact overview of new functionality in 
+Programming Mode 3 can be found in Section \ref{sec:newfunc3}.
 
 \subsection[\ \ Objectives]{Objectives} 
  
@@ -1572,8 +1571,9 @@ the first ones is our own name. \\
 \underline{\em Text strings}\\
 
 \noindent
-With a bit of abstraction (and say that your name is "Melissa"), 
-when you were about two years old, you did the following:\\
+Say that your name is "Melissa". When you were about two years old, you 
+saved your own name in your memory. Using computer language, this can 
+be written as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1586,13 +1586,15 @@ when you were about two years old, you did the following:\\
 The variable {\tt my\_name} stores a text (string of characters). 
 Since then, each time someone said a name, you retrieved in your brain the value of the variable
 {\tt my\_name}, compared it to the name that you heard, and if you got a match then you turned around 
-to see who was calling you. \\
+to see who was calling you. 
+
+\newpage
 
 \noindent
 \underline{\em Numbers}\\
 
 \noindent
-We also use numerical variables such as\\
+Later in life we learn about various important numbers such as\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1602,7 +1604,7 @@ We also use numerical variables such as\\
 \vspace{6mm}
 
 \noindent
-or {\tt minutes\_per \_hour} whose value is 60 as well, 
+or {\tt minutes\_per\_hour} whose value is 60 as well, 
 {\tt hours\_per\_day} whose value is 24, and so on. The last three variables do not change 
 too often, most likely they will not change during our lives. But we also use variables whose 
 values change, such as {\tt days\_per\_year}, {\tt number\_of\_my\_pets}, etc. In Karel, we
@@ -1623,11 +1625,9 @@ Logical variables can only store two possible values:
 \vspace{6mm}
 
 \noindent
-Of course, for someone else this variable will have the value {\tt False}. The important 
-thing is that when someone asks you whether you speak a foreign language, you can retrieve 
-this information quickly. The value is {\em stored}, it does not have to be {\em created}
-again. Logical variables and operations will be discussed in more detail in Section 
-\ref{sec:logic}. In the rest of this section we will work with integers and text strings.
+Of course, for someone this variable will have the value {\tt True} and for someone else 
+it will be {\tt False}. Logical variables and operations will be discussed in more detail in Section 
+\ref{sec:logic}. 
 
 \subsection[\ \ Using the GPS device and the {\tt print} command]{Using the GPS device and the {\tt print} command}
 
@@ -1695,8 +1695,8 @@ Vertical position: 11
 \vspace{6mm}
 
 \noindent
-Try to move Karel to other parts of the maze via simple commands or in Designer, 
-and run the program again, to make yourself familiar with how the GPS device works.\\
+Move Karel to other parts of the maze and run the program again, to make yourself 
+familiar with how the GPS device works!\\
 
 \noindent
 The {\tt print} command can be used to display more complicated sentences where text
@@ -1710,20 +1710,25 @@ and variables are separated by commas:\\
 \vspace{6mm}
 
 \noindent
-Notice that each comma means the inclusion of one empty character:
+Which, for the above maze, produces the output:\\
 
+\begin{ybox}
+\begin{verbatim}
+My GPS coordinates are 14 and 11
+\end{verbatim}
+\end{ybox}
 
 \subsection[\ \ Defining custom functions]{Defining custom functions}
 
-In Programming Mode 3 we can use the reserved word {\tt return} inside the body of
-a command to return a value. Such commands are then called {\em functions}. 
-They are also defined using the keyword {\tt def}. For example, the following function
-{\tt count\_steps} will return the number of steps the robot needed to 
-make in order to reach the closest wall in the direction that he was facing:\\
+In Programming Mode 3 we can use the keyword {\tt return} in the body of
+a command to return a value. Such commands are called {\em functions}. 
+They are also defined using the keyword {\tt def}. For example, with the following function
+{\tt count\_steps\_to\_wall} the robot will walk straight towards the closest wall and 
+return the number of steps he has done to reach it:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} count_steps
+\PY{k}{def} count_steps_to_wall
     n = 0
     \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
         \PY{n+nf}{go}
@@ -1748,8 +1753,8 @@ The function can then be used as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{num} \PY{o}{=} \PY{n}{count\PYZus{}steps}
-\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Number of steps:}\PY{l+s}{"}\PY{p}{,} \PY{n}{num} 
+\PY{n}{num} \PY{o}{=} \PY{n}{count\PYZus{}steps\PYZus{}to\PYZus{}wall}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{I reached a wall in}\PY{l+s}{"}\PY{p}{,} \PY{n}{num}, \PY{l+s}{"}\PY{l+s}{steps!\PY{l+s}{"}}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1775,7 +1780,7 @@ the output is\\
 
 \begin{ybox}
 \begin{verbatim}
-Number of steps: 10
+I reached a wall in 10 steps!
 \end{verbatim}
 \end{ybox}
 \vspace{6mm}
@@ -1825,7 +1830,7 @@ var2 = var1
 
 \noindent
 \item Initialize them with value returned by an existing function, as it was shown 
-with the function {\tt count\_steps} in the previous paragraph:\\[-6mm]
+with the function {\tt count\_steps} in the previous paragraph:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1879,12 +1884,13 @@ End position: 10
 
 \subsection[\ \ Using functions {\tt inc()} and {\tt dec()}]{Using functions {\tt inc()} and {\tt dec()}}\label{subsec:incdec}
 
-As we saw before, we can increase or decrease the value of a numerical 
-variable by one using the functions {\tt inc()} and 
-{\tt dec()}, respectively. The full version of these functions 
-is {\tt inc(n, num)} and {\tt dec(n, num)} where {\tt n} is the 
-name of the variable and {\tt num} is 
-an integer number that is set to one by default.
+Karel does not know mathematical symbols '+' and '-'. But for 
+counting purposes, he can increase and decrease the value of an 
+integer variable by one using the functions {\tt inc()} and 
+{\tt dec()}, respectively. He can also increase and decrease the
+value of a variable by more than one via {\tt inc(n, num)} and 
+{\tt dec(n, num)}, where {\tt n} is the name of the variable and 
+{\tt num} is an integer number.
 
 Consider again Karel's initial position as shown 
 in Fig. \ref{fig:var1}. Then the code\\
@@ -1895,7 +1901,7 @@ a = 0
 \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
     \PY{n+nf}{go}
     \PY{n+nf}{inc}(a)
-\PY{n+nf}{print} \PY{l+s}{"Went"}, a, \PY{l+s}{"steps before reaching a wall."}
+\PY{n+nf}{print} \PY{l+s}{"I made"}, a, \PY{l+s}{"steps before reaching a wall."}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -1905,7 +1911,7 @@ will have the following output:\\
 
 \begin{ybox}
 \begin{verbatim}
-Went 7 steps before reaching a wall.
+I made 7 steps before reaching a wall.
 \end{verbatim}
 \end{ybox}
 \vspace{6mm}
@@ -1996,11 +2002,11 @@ yields\\
 \subsection[\ \ Text string variables]{Text string variables}
 
 Text string variables are created and initialized analogously 
-to numerical variables:\\
+to the numerical ones:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-robot_name = \PY{s+1}{"Karel"}
+robots_name = \PY{s+1}{"Karel"}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -2010,7 +2016,7 @@ They can be printed as usual. The code\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{print} \PY{s+1}{"Robot's name is"}, my_name
+\PY{k}{print} \PY{s+1}{"Robot's name is"}, robots_name
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
@@ -2020,7 +2026,7 @@ yields\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
-MRobot's name is Karel
+Robot's name is Karel
 \end{Verbatim}
 \end{ybox}
 \vspace{6mm}
@@ -2029,35 +2035,28 @@ MRobot's name is Karel
 A text string variable can be used to initialize a new one. Let's say 
 that someone wants to rename the robot to "Carlos" (which is the Spanish 
 version of "Karel"),
-and store his original name in the variable {\tt robot\_name\_orig}. 
+and store his original name in the variable {\tt robots\_name\_orig}. 
 This is done as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-robot_name_orig = robot_name
-robot_name = \PY{s+1}{"Carlos"}
+robots_name_orig = robots_name
+robots_name = \PY{s+1}{"Carlos"}
 \end{Verbatim}
 \end{bbox}
-\vspace{6mm}
-
-\noindent
-Text string variables can be useful, for example, to store texts for 
-error messages and warnings in larger programs. Then, they can be 
-defined in one place, although they are used in many different parts of 
-the program. When we need to change such error message, we can do it 
-very elegantly where the variable is defined, without having to go through 
-the entire program and change the text everywhere.  
 
 \subsection[\ \ Local and global variables]{Local and global variables}\label{subsec:karellocvar}
 
-Note that a variable that is defined inside a function is {\em local to that function}, 
+A variable that is created within a function is {\em local to that function}, 
 meaning that it can be used in the function only. If we attempt to use it 
-outside, an error is thrown. For illustration, the code \\
+outside of that function, an error is thrown. The following code creates
+a local variable {\tt a} within a function called {\tt myfunction}:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} myfunction
   a = 1
+  return
 
 myfunction
 \PY{k}{print} a  
@@ -2066,7 +2065,7 @@ myfunction
 \vspace{6mm}
 
 \noindent
-throws an error message \\
+When run, the code throws an error message:\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2076,10 +2075,47 @@ throws an error message \\
 \vspace{6mm}
 
 \noindent
-Although using local variables might seem constraining, in reality it helps us 
-to keep our code fit. It is a very good habit to keep variables in our programs 
-as local as possible. More about local and global variables will be said in 
-the Python textbook.
+On the other hand, variables created within the main program 
+are {\em global}. Global variables can be used in functions. 
+For illustration, let us adjust the above program to:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} myfunction
+  print "b =", b
+  return
+
+b = 5
+
+myfunction
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The output of this program is:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+b = 5
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+\begin{gbox}
+\begin{center}
+Using local variables is extremely helpful as it keeps 
+the code well organized.\\
+Global variables should be avoided, or at least kept to a minimum.
+\end{center}
+\end{gbox}
+\vspace{6mm}
+
+\noindent
+More about local and global 
+variables is said in the NCLab Python textbook which is available 
+at {\tt http://femhub.com/textbook-python}. 
 
 \section{Lists}
 
@@ -2426,7 +2462,6 @@ In fact, each time we are appending a list consisting of the horizontal and
 vertical GPS coordinates -- there is no other way to represent two numbers 
 in one variable unless the variable is a list. When the robot's initial position 
 is as shown in Fig. \ref{fig:list-1},
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
