@@ -2420,26 +2420,18 @@ Length of the list is 4
 
 \subsection[\ \ Parsing lists]{Parsing lists}
 
-In Karel, lists can be parsed via the {\tt repeat} command.
-For illustration, the following sample code defines a list {\tt M} consisting of four numbers 
-{\tt 1, 2, 3, 4} and prints all of them increased by two: \\
+In Karel, lists can be parsed via the {\tt for} command that is the same as the 
+corresponding command in Python.
+For illustration, the following code defines a list {\tt M} consisting of four numbers 
+{\tt 1, 2, 3, 4} and prints each of them, increased by two: \\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 M = [1, 3, 5, 7]
-n = \PY{n+nf}{len}(M)
-i = 0
-\PY{k}{repeat} n
-    c = M[i]
-    \PY{k}{print} \PY{n+nf}{inc}(c, 2)
-    \PY{n+nf}{inc}(i)
+\PY{k}{for} n \PY{k}{in} M
+    \PY{k}{print} \PY{n+nf}{inc}(n, 2)
 \end{Verbatim}
 \end{bbox}
-\vspace{6mm}
-
-\noindent
-Note: This is slightly different from how lists are parsed in Python. 
-Soon it will be possible to use the Python way in Karel. Implementation is under way.
 
 \subsection[\ \ Storing the robot's path in a list]{Storing the robot's path in a list}
 
@@ -2464,6 +2456,7 @@ L.append([gpsx, gpsy])
 \noindent
 When the robot's initial position is as shown in Fig. 
 \ref{fig:list-1},
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2488,29 +2481,101 @@ Path: [[11, 6], [10, 6], [9, 6], [8, 6], [7, 6], [6, 6],
 \subsection[\ \ Storing positions of gems in a list]{Storing positions of gems in a list}
 
 \noindent
-The following 
-sample program tells the robot to... UNDER CONSTRUCTION
+In this example, gems are distributed randomly along the perimeter of the maze.
+The task for the robot is to walk around the maze boundary, and record into a list 
+the positions and counts of all gems that he finds. Each list entry should have 
+the form {\tt [gpsx, gpsy, number]}. At the end, he should print the list.
+\newpage
 
-\subsection[\ \ Double indices]{Double indices}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/lists-1b.png}
+\vspace{-0mm}
+\caption{Gems are distributed randomly along maze perimeter.}
+%\vspace{-1cm}
+\label{fig:list-1b}
+\end{center}
+\end{figure}
 
-To keep Karel's language simple, we do not allow double indices. Nevertheless
-there is a simple way to get to the items of lists that are contained in other lists:\\
+\noindent
+One possible program to do this looks as follows. First we write 
+a function {\tt countgems} that will count the number of gems in a square
+and return their number:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-a = L[0]
-\PY{k}{print} \PY{s+1}{"Horizontal coordinate of initial position:"}, a[0]
-\PY{k}{print} \PY{s+1}{"Vertical coordinate of initial position:"}, a[1]
-a = L[1]
-\PY{k}{print} \PY{s+1}{"Horizontal coordinate after one step:"}, a[0]
-\PY{k}{print} \PY{s+1}{"Vertical coordinate after one step:"}, a[1]
-...
+\PY{k}{def} countgems
+  num = 0
+  \PY{c}{\PYZsh{} Collect all gems:}
+  \PY{k}{while} gem
+    \PY{k}{get}
+    \PY{n+nf}{inc}(num)
+  \PY{c}{\PYZsh{} Put the gems back:}
+  \PY{k}{repeat} num
+    \PY{k}{put}
+  \PY{k}{return} num
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Then we can use this function to obtain the desired list:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Create an empty list:}
+L = []
+
+\PY{c}{\PYZsh{} Walk along 4 walls:}
+\PY{k}{repeat} 4
+  \PY{k}{while} \PY{n+nf}{not wall}
+    \PY{k}{go}
+    \PY{k}{if} \PY{n+nf}{gem}
+      L.append([\PY{n+nf}{gpsx}, \PY{n+nf}{gpsy}, countgems])
+  \PY{k}{left}
+
+\PY{c}{\PYZsh{} Print the list:}
+\PY{k}{print} \PY{s+1}{"Here is the report:"}
+\PY{k}{print} L
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+For the maze shown in Fig. \ref{fig:list-1b}, the output of the program is\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+Here is the report:
+[[14, 1, 1], [14, 3, 3], [14, 7, 6], [14, 8, 2], [14, 11, 9], 
+[11, 11, 1], [10, 11, 2], [6, 11, 5], [3, 11, 2], [0, 11, 4], 
+[0, 7, 2], [0, 5, 3], [0, 2, 1], [0, 0, 2], [1, 0, 1], 
+[5, 0, 2], [7, 0, 1], [12, 0, 6]]
+\end{Verbatim}
+\end{ybox}
+
+\subsection[\ \ Lists contained in other lists]{Lists contained in other lists}
+
+Notice that the result of the last program is a list {\tt L} that contains other (embedded) lists.
+In other programming languages, items of embedded lists are accessed via multiple indices. 
+This is not allowed in Karel for the sake of simplicity, but still the same can be done 
+easily. Look, for example, at the following program that goes through the list {\tt L} 
+and creates another list {\tt L2} that only contains the counts of gems (their 
+coordinates are left out):\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+L2 = []
+\PY{k}{for} x \PY{k}{in} L
+  L2.\PY{k}{append}(x[2])
+\PY{k}{print} \PY{s+1}{"Skipping the coordinates:"}
+\PY{k}{print} L2
 \end{Verbatim}
 \end{bbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Advanced Logic} \label{sec:logic} 
+\section{Elementary and Advanced Logic} \label{sec:logic} 
 
 \subsection[\ \ Objectives]{Objectives} 
  
@@ -2521,14 +2586,14 @@ a = L[1]
 
 \subsection[\ \ Simple logical expressions]{Simple logical expressions}
 
-As we already know, logical expressions are expressions that can be answered with either {\tt True} or 
-{\tt False}. We say that the {\tt True} or the {\tt False} is their {\em value}. Here are some 
+As we already know, logical expressions are expressions that are either {\tt True} or 
+{\tt False}. We say that {\tt True} or {\tt False} is their {\em value}. Here are some 
 real-life examples, try to answer them with {\tt True} or {\tt False}:
 
 \begin{itemize}
-\item "I am 15 years old."
+\item "I am 12 years old."
 \item "My dad is a teacher."
-\item "My school's name is Coral Academy."
+\item "My school is a STEM Academy."
 \end{itemize}
 And here are some Karel examples:
 \begin{itemize}
@@ -2539,8 +2604,6 @@ And here are some Karel examples:
 \item {\color{ForestGreen} \tt empty} ... {\tt True} if the robot does not have any gems on him, {\tt False} otherwise.
 \end{itemize}
 Let's consider the situation shown in Fig. \ref{fig:logic1}.
-\newpage
-
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=14cm]{img/logic-1.png}
@@ -2550,7 +2613,6 @@ Let's consider the situation shown in Fig. \ref{fig:logic1}.
 \label{fig:logic1}
 %\vspace{-10mm}
 \end{figure}
-\noindent
 The following code shows different ways we can operate with the 
 logical value provided by the {\tt wall} sensor:\\
 
@@ -2568,7 +2630,7 @@ value = \PY{n+nb+bp}{wall}
 \vspace{6mm}
 
 \noindent
-The output of this code is \\
+Given the situation in Fig. \ref{fig:logic1}, the output of this code is:\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2578,20 +2640,20 @@ There is no wall in front of me.
 \end{Verbatim}
 \end{ybox}
 
-\subsection[\ \ Complex logical expressions]{Complex logical expressions}
+\subsection[\ \ More complex logical expressions]{Complex logical expressions}
 
 In programming as well as in real life we often deal with logical expressions that are 
-fairly complex. Often we use two or more simple logical expressions in one sentence, 
+more complex. Often we use two or more simple logical expressions in one sentence, 
 and moreover combine them with logical operations {\tt and}, {\tt or} or {\tt not}.
 
 For example, the sentence "I will go skiing on Saturday if weather is good and if 
-Michael goes as well." includes three simple logical expressions. Let's call 
+Michael joins me." includes three simple logical expressions. Let's call 
 them for brevity\\
 
 \noindent
 {\tt A} = "I will go skiing on Saturday."\\
 {\tt B} = "The weather is good."\\
-{\tt C} = "Michael goes as well."\\
+{\tt C} = "Michael joins me."\\
 
 \noindent
 There is a logical operation {\tt and} between the expressions {\tt B}, {\tt C}.
@@ -2602,7 +2664,8 @@ if {\tt B} {\tt and} {\tt C} then {\tt A}
 }
 \vspace{4mm}
 \noindent
-We love this kind of brevity in programming. Let's say that we can 
+We love this kind of brevity in programming because it makes the code short. 
+Let's say that we can 
 predict the future and we know that the weather will be good and that 
 Michael will go as well. Then we can translate the above condition 
 into computer code. We also print the resulting value of {\tt A}
@@ -2698,9 +2761,15 @@ And finally, truth table for logical {\tt not} is:\\
 \vspace{4mm}
 \noindent
 
-\subsection{\ \ Using random moves to search entire maze}
+\section{Randomness} \label{sec:random} 
 
-In Programming Mode 3 Karel can make random decisions via the command {\tt rand}
+\subsection[\ \ Objectives]{Objectives} 
+ 
+\begin{itemize}
+\item Learn how to make random decisions using the {\tt rand} command.
+\item Learn to simulate random processes.
+\end{itemize}
+In Programming Mode 3, Karel can make random decisions via the command {\tt rand}
 that returns with equal probability either {\tt True} or {\tt False}. 
 Typical usage of this command is \\
 
@@ -2712,10 +2781,10 @@ Typical usage of this command is \\
     do_something_else
 \end{Verbatim}
 \end{bbox}
-\vspace{6mm}
 
-\noindent
-For illustration, here is a nice short program that makes Karel walk randomly 
+\subsection{\ \ Using random moves to search entire maze}
+
+As a first example, here is a nice short program that makes Karel walk randomly 
 through the maze and look for gems:\\
 
 \begin{bbox}
@@ -2746,10 +2815,10 @@ an infinite loop, so you will have to eventually stop it via the red button.
 
 \subsection{\ \ Karel and Statistics}
 
-In this experiment Karel will reproduce the so-called {\em binomial distribution}. 
+In this experiment, Karel will reproduce the so-called {\em binomial distribution}. 
 If you do not know what this is, do not worry and keep reading -- the experiment 
 is quite interesting. Karel starts in the upper-right corner of the maze, facing
-South, as shown in Fig. \ref{fig:binomial},
+South, as shown in Fig. \ref{fig:binomial}.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2775,8 +2844,7 @@ Here is the corresponding code:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{\PYZsh{} Return to upper right corner and}
-\PY{c}{\PYZsh{} face South:}
+\PY{c}{\PYZsh{} Return to upper right corner and face South:}
 \PY{k}{def} GoCorner
   \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{north}
     \PY{n+nf}{left}
@@ -2786,9 +2854,13 @@ Here is the corresponding code:\\
   \PY{n+nf}{left}
   \PY{k}{repeat} 11
     \PY{n+nf}{go}
-  \PY{n+nf}{right}
-  \PY{n+nf}{right}
+  \PY{k}{repeat} 2
+    \PY{n+nf}{right}
+\end{Verbatim}
+\end{bbox}
 
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{c}{\PYZsh{} Descend one row towards the South.}
 \PY{c}{\PYZsh{} Either go straight or to the right:}
 \PY{k}{def} Move
@@ -2811,13 +2883,10 @@ Here is the corresponding code:\\
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
-\hfill
 
-\newpage
 \noindent
-You can download this project from NCLab's public database.
 Fig. \ref{fig:binomial2} shows the result. The distribution of the 
-gems along the South wall approximate the binomial distribution. 
+gems along the South wall approximates the binomial distribution. 
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2830,7 +2899,8 @@ gems along the South wall approximate the binomial distribution.
 \end{figure}
 
 \noindent
-Credit for this example goes to Ed Keppelmann from UNR. 
+Credit for this example goes to Ed Keppelmann from UNR. The example 
+can be downloaded from NCLab's public database.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2958,7 +3028,6 @@ is replaced with its own body. The corresponding code would look as follows:\\
 \noindent
 Since the robot is one step away from the wall, the third {\tt if not wall} condition passes and 
 he makes a third step forward. His new position is shown in Fig. \ref{fig:rec4}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -3141,7 +3210,7 @@ In Programming Mode 1, Karel can be guided by typing the commands:
 \item {\tt repeat} ... counting loop (repeat an action a given number of times).
 \end{itemize}
 
-\subsection[\ \ Programming Mode 2 (Sections \ref{sec:cond} -- \ref{sec:recursion})]{Programming Mode 2 (Sections \ref{sec:cond} -- \ref{sec:recursion})}
+\subsection[\ \ Programming Mode 2 (Sections \ref{sec:cond} -- \ref{sec:newcom})]{Programming Mode 2 (Sections \ref{sec:cond} -- \ref{sec:newcom})}
 
 New commands:
 \begin{itemize}
@@ -3157,12 +3226,8 @@ Additional new keywords:
 \item {\tt home} ... sensor that checks True if the robot is at home.
 \item {\tt north} ... sensor that checks True if the robot faces North.
 \end{itemize}
-New functionality:
-\begin{itemize}
-\item Recursion (a command can make a call to itself).
-\end{itemize}
 
-\subsection[\ \ Programming Mode 3 (Sections \ref{sec:var}, \ref{sec:logic})]{Programming Mode 3 (Sections \ref{sec:var}, \ref{sec:logic})}
+\subsection[\ \ Programming Mode 3 (Sections \ref{sec:var} - \ref{sec:recursion})]{Programming Mode 3 (Sections \ref{sec:var} - \ref{sec:recursion})}
 
 New keywords:
 \begin{itemize}
@@ -3193,6 +3258,7 @@ New functionality:
 \item Complex logical expressions.
 \item Functions that return values.
 \item Lists.
+\item Recursion.
 \end{itemize}
 
 \section{What next?}
@@ -3207,7 +3273,9 @@ Karel, please let us know as well. \\
 You are now ready to dive into a next programming language! We would 
 recommend Python which is a modern dynamic programming 
 language that is used in many applications in business, science,
-engineering, and other areas.\\
+engineering, and other areas. NCLab provides a Python programming 
+module which is suitable for learning, and a free textbook that can be found at 
+{\tt http://femhub.com/textbook-python}.\\
 
 \noindent
 In any case, our team wishes you good luck, and keep us in your 
